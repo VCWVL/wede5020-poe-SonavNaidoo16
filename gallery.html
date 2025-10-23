@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRC Tuned | Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #0d0d0d; /* Dark background for contrast */
+      color: white; /* Default text color */
+    }
+
+    /* Header styling */
+    header {
+      display: flex; /* Horizontal layout for logo and nav */
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #111; /* Dark header */
+      border-bottom: 2px solid rgb(255, 111, 0); /* Orange bottom border */
+    }
+
+    /* Logo text styling */
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Highlight part of logo */
+    .logo span {
+      color: rgb(255, 111, 0);
+    }
+
+    /* Navigation links */
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ccc; /* Light gray links */
+      transition: color 0.3s; /* Smooth hover effect */
+    }
+
+    /* Hover and active page link effect */
+    nav a:hover,
+    nav a.active {
+      color: rgb(255, 111, 0);
+    }
+
+    /* Main page heading */
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #f0f0f0;
+    }
+
+    /* Gallery grid layout */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+      gap: 15px; /* Space between images */
+    }
+
+    /* Individual gallery image styling */
+    .gallery img {
+      width: 100%; /* Full width of grid cell */
+      height: 200px;
+      object-fit: cover; 
+      border-radius: 10px; 
+      transition: transform 0.3s, box-shadow 0.3s; 
+      cursor: pointer; 
+    }
+
+    /* Hover effect for images */
+    .gallery img:hover {
+      transform: scale(1.05); 
+      box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3); 
+    }
+
+    /* Video Section Styling */
+    .video-section {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .video-section h2 {
+      color: rgb(255, 111, 0); /* Orange heading */
+      margin-bottom: 20px;
+    }
+
+    /* Responsive YouTube embed */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 80%; /* keeps it from stretching full width */
+      margin: 0 auto; /* center align */
+      border: 3px solid rgb(255, 111, 0); /* orange border to match theme */
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(255, 111, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .video-container:hover {
+      transform: scale(1.03); 
+      box-shadow: 0px 6px 20px rgba(255, 111, 0, 0.7);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      border-top: 2px solid rgb(255, 111, 0);
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with logo and navigation -->
+  <header>
+    <div class="logo">FRC <span>Tuned</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" class="active">Gallery</a> <!-- Active page highlighted -->
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- title for gallery -->
+  <h1>FRC's Image Gallery</h1>
+
+  <!-- Gallery grid containing images -->
+  <div class="gallery">
+    <img src="pictures/ecu.jpg" alt="ECU Tuning">
+    <img src="pictures/suspension.png" alt="suspension">
+    <img src="pictures/air susp.jpg" alt="air suspension">
+    <img src="pictures/coil.png" alt="coilovers">
+    <img src="pictures/dyno.png" alt="dyno tuning">
+    <img src="pictures/exhaust.jpg" alt="exhaust system">
+    <img src="pictures/rb26-motor-nissan-768x512.jpg" alt="engine tuning">
+    <img src="pictures/exh exit.png" alt="exhaust exit">
+    <img src="pictures/air susp.jpg" alt="air suspension">
+    <img src="pictures/coil.png" alt="coilovers">
+    <img src="pictures/track.png" alt="track">
+    <img src="pictures/dynp place.png" alt="dyno">
+  </div>
+
+  <!-- Embedded YouTube Video -->
+  <div class="video-section">
+    <h2>Watch Our Tuning in Action</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/GOQK6rE63VU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Footer for FRC -->
+  <footer>
+    <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
+  </footer>
+</body>
+</html>
