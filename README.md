@@ -123,13 +123,28 @@ Images in the gallery and other areas should be stored in the pictures directory
 - Tested website on desktop, tablet, and mobile views.
 - README updated with Part 2 documentation.
 
+Responsive design (Mobile):
+
+ <img width="387" height="854" alt="image" src="https://github.com/user-attachments/assets/a54cd9e3-83c3-4b5e-8847-c8fe19576ee1" />
+
+Responsive design (Tablet):
+
+<img width="701" height="893" alt="image" src="https://github.com/user-attachments/assets/a1d1f019-82bc-4d64-8675-652579adb4a0" />
+
+Responisve design (Laptop): 
+
+  <img width="1898" height="1029" alt="image" src="https://github.com/user-attachments/assets/6946cca6-f15d-424f-8c31-a8e4f2b45d54" />
+
+
 ## Changelog (Part 3)
+
+Feedback from part 2: 
 -Feedback Area: Referencing and Source Integration
 -Updated all in-text references to follow the Harvard referencing style.
 -Matched every in-text citation with the reference list.
 -Fixed missing information such as publication years, URLs, and access dates.
 -Proofread all references to ensure consistency and accuracy.
-
+-Added responsive design pictures into the ReadMe
 
 ## Referencing:
 
