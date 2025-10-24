@@ -122,6 +122,7 @@ Images in the gallery and other areas should be stored in the pictures directory
 - Updated navigation and layout to adapt to smaller screen sizes.
 - Tested website on desktop, tablet, and mobile views.
 - README updated with Part 2 documentation.
+- Added a youtube video of the real product implemented and tested 
 
 Responsive design (Mobile):
 
@@ -185,3 +186,4 @@ W3Schools. (2024). HTML Tutorial. Available at: https://www.w3schools.com/html/ 
 
 Mozilla Developer Network (MDN). (2024). CSS Basics. Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS (Accessed: 24 October 2025).
 
+YouTube 2025. GOQK6rE63VU – embedded video [Online]. Available at: https://www.youtube.com/embed/GOQK6rE63VU (Accessed: 24 October 2025).
