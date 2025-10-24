@@ -55,13 +55,21 @@ JavaScript – For the functionality of the quote calculator
 File Structure
 FRC-Tuned-Website/
 │
+
 ├─ index. html # Homepage
+
 ├─ about. html # About Us page
+
 ├─ services. html # Services page
+
 ├─ gallery. html # Page for images
+
 ├─ contact. html # Contact page with form
+
 ├─ quote. html # Quote and Pricing page with calculator
+
 ├─ style. css # Main stylesheet
+
 └─ pictures/ # Directory containing all site images
 
 Instructions to Run Locally
@@ -75,23 +83,32 @@ Make sure that JavaScript is activated in your browser for the quote calculator 
 All pricing examples are indicative and may change based on the vehicle model or parts.
 Images in the gallery and other areas should be stored in the pictures directory.
 
-License
-This project is intended for educational and demonstration use. Feel free to adjust and utilize it as needed.
 
-  Pictures
+  Pictures:
   homepage: 
+  
   <img width="1898" height="1029" alt="image" src="https://github.com/user-attachments/assets/6946cca6-f15d-424f-8c31-a8e4f2b45d54" />
+
   about page:
+  
   <img width="1905" height="1027" alt="image" src="https://github.com/user-attachments/assets/7a0e8d4c-c3c7-4732-9cbc-db27a420bb53" />
+  
   gallery page:
+  
   <img width="1901" height="1023" alt="image" src="https://github.com/user-attachments/assets/e3f8513f-17b8-4c16-bfa9-6381a96d976d" />
   <img width="1905" height="1026" alt="image" src="https://github.com/user-attachments/assets/dbfd20b5-7a04-4d9b-8e31-61a78f18b67d" />
+  
   Contact page:
+  
   <img width="1893" height="1027" alt="image" src="https://github.com/user-attachments/assets/d585fb5f-5e26-4e01-a862-f067a8e123f8" />
   <img width="1897" height="1023" alt="image" src="https://github.com/user-attachments/assets/eb0ea293-ff0f-4bec-8f42-7086b518689f" />
+  
   Service page:
+  
   <img width="1897" height="1026" alt="image" src="https://github.com/user-attachments/assets/05258519-fd9f-46b2-8a65-b4144cfeb325" />
+  
   Quote page:
+  
   <img width="1912" height="1025" alt="image" src="https://github.com/user-attachments/assets/c3e2daae-331c-40f2-a9ae-9817a3fe1c78" />
 
 ## Changelog (Part 2)
@@ -105,3 +122,51 @@ This project is intended for educational and demonstration use. Feel free to adj
 - Updated navigation and layout to adapt to smaller screen sizes.
 - Tested website on desktop, tablet, and mobile views.
 - README updated with Part 2 documentation.
+
+## Changelog (Part 3)
+-Feedback Area: Referencing and Source Integration
+-Updated all in-text references to follow the Harvard referencing style.
+-Matched every in-text citation with the reference list.
+-Fixed missing information such as publication years, URLs, and access dates.
+-Proofread all references to ensure consistency and accuracy.
+
+
+## Referencing:
+
+BPlan. (2023, june 22). Performance tuning and upgrades: Running Expenses. Retrieved from BPlan AI: https://bplan.ai/blogs/running-expenses/performance-tuning-and-upgrades-running-expenses
+
+OG Web Solutions. (2023, april 18). What Are 10 Things a Website Should Have? Retrieved from OG Web Solutions: https://www.ogwebsolutions.com/what-are-10-things-a-website-should-have/#:~:text=A%20website%20should%20have%2010%20essential%20elements%20to,visual%20design%2C%20content%2C%20contact%20information%2C%20security%2C%20and%20analytics.
+
+webify24.com. (2025). FRC TUNED. Retrieved from FRC TUNED: https://frctuned.co.za/
+
+
+Image1:  webify24.com. (2025). FRC TUNED. Retrieved from FRC TUNED: https://frctuned.co.za/ (Accessed: 22 August 2025).
+
+Image2: FRC Tuned. (2020). Photo post featuring modified vehicle. [Facebook]. Available at: https://www.facebook.com/546134502135583/photos/a.100047724649660/2660030074079338/  (Accessed: 22 August 2025).
+
+Image3:  webify24.com. (2025). FRC TUNED. Retrieved from FRC TUNED: https://frctuned.co.za/ (Accessed: 22 August 2025).
+
+Team 1Exhaust. (2025). Finding the right exhaust price for your vehicle. [online] 1Exhaust. Available at: https://www.1-exhaust.co.za/2025/01/28/finding-the-right-exhaust-price-for-your-vehicle/ (Accessed: 26 August 2025).
+
+Family Research Council. (n.d.). FRC Staff. [online] Family Research Council. Available at: https://www.frc.org/content/click-here-to-meet-the-frc-team#gsc.tab=0 (Accessed: 27 August 2025).
+
+i.ytimg. 2025. maxresdefault.jpg (1280×720). [Image online]. Available at: https://i.ytimg.com/vi/Tyw4MQGe6Gg/maxresdefault.jpg (Accessed: 27 August 2025).
+
+Bing. 2025. Wide-format image from Bing. [Image online]. Available at: https://tse1.mm.bing.net/th/id/OIP.4HkvB1JWhiJ5IOlTEPbupAHaEL?rs=1&pid=ImgDetMain&o=7&rm=3 (Accessed: 27 August 2025)
+
+Holley. 2025. 9aeb42ef4f26fd0173d10a2dc4086c96adc72f13.jpg (2844×1467). [Image online]. Available at: https://images.holley.com/9aeb42ef4f26fd0173d10a2dc4086c96adc72f13.jpg (Accessed: 27 August 2025).
+
+parkmuffler. (2019). shutterstock_1812125107.jpg (1000×665). [Image online]. Available at: shutterstock_1812125107.jpg (1000×665) (Accessed: 27 August 2025)
+
+Low-offset (2023). rb26-motor-nissan-768x512.jpg (768×512). [Image online]. Available at: rb26-motor-nissan-768x512.jpg (768×512) (Accessed: 27 August 2025)
+
+Twitter 2025. Image hosted on Twitter – FY7FDhMXoAE-uNP [Online]. Available at: https://pbs.twimg.com/media/FY7FDhMXoAE-uNP.jpg (Accessed: 1 October 2025)
+
+Bing 2025. Image – OIP.disXNrQmyHpmjgzhS5lsvgHaGA [Online]. Available at: https://tse1.mm.bing.net/th/id/OIP.disXNrQmyHpmjgzhS5lsvgHaGA (Accessed: 1 October 2025).
+
+PNGSet 2025. Ferrari logo black and white with hook and anchor – transparent PNG [Online]. Available at: https://pngset.com/images/ferrari-logo-black-and-white-hook-anchor-transparent-png-1534006.png (Accessed: 1 October 2025).
+
+W3Schools. (2024). HTML Tutorial. Available at: https://www.w3schools.com/html/ (Accessed: 24 October 2025).
+
+Mozilla Developer Network (MDN). (2024). CSS Basics. Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS (Accessed: 24 October 2025).
+
