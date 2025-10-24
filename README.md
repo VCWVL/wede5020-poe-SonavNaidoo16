@@ -112,17 +112,69 @@ Images in the gallery and other areas should be stored in the pictures directory
   <img width="1912" height="1025" alt="image" src="https://github.com/user-attachments/assets/c3e2daae-331c-40f2-a9ae-9817a3fe1c78" />
 
 ## Changelog (Part 2)
-- Added `style.css` external stylesheet and linked to all pages.
-- Applied CSS reset and base styles for consistent design.
-- Defined typography styles for headings, paragraphs, and links.
-- Implemented Flexbox and CSS Grid layouts for header, gallery, and content sections.
-- Styled buttons with hover and transition effects for interactivity.
-- Added responsive design with media queries for tablet (≤768px) and mobile (≤480px).
-- Ensured images are responsive using max-width and height auto adjustments.
-- Updated navigation and layout to adapt to smaller screen sizes.
-- Tested website on desktop, tablet, and mobile views.
-- README updated with Part 2 documentation.
-- Added a youtube video of the real product implemented and tested 
+
+## ReadMe
+### Added
+- Implemented different views to enhance navigation and user experience.
+- Updated `README.md` to include new project structure and navigation details.
+- Verified and merged updates via GitHub.
+- Multiple updates to `README.md` including:
+  - Project overview, setup, and usage instructions.
+  - Visual previews and feature descriptions.
+  - Updated changelog and commit references.
+  - 
+### Removed
+- Deleted redundant file `frctuned readme.pdf` to reduce repository clutter.
+
+### Merged
+- Merged branch `master` from remote repository to ensure sync with all recent updates.
+
+## CSS
+### Changed
+- Refactored overall code structure for readability and maintainability.
+- Improved and modularized CSS to streamline style definitions.
+- Updated HTML elements and layout for a more professional and consistent UI.
+
+### Added
+- Introduced a video section to the gallery page to showcase dynamic content.
+- Enhanced footer styling for better spacing, alignment, and typography.
+- Modified heading colors in CSS for better contrast and readability.
+
+## Responsive design
+### Fixed
+- Resolved layout and responsiveness issues on the Quote page.
+
+### Added
+- Introduced additional media queries for improved responsiveness.
+- Added code comments and referencing for clarity.
+- Removed duplicated images from the gallery section.
+
+### Improved
+- Enhanced and cleaned CSS for maintainability.
+- Optimized responsive design for tablets and mobile devices.
+
+
+### Initial Project Setup
+- Created base project files and structure.
+- Added external stylesheet `style.css` linked to all pages.
+- Implemented CSS reset for padding and margin consistency.
+- Defined typography, background, and color schemes.
+- Introduced Flexbox and CSS Grid layouts for structure and alignment.
+- Styled buttons with hover and transition effects.
+- Ensured full responsiveness for:
+  - Tablets (≤768px)
+  - Mobile devices (≤480px)
+- Updated navigation and image responsiveness using max-width and height auto.
+- Added YouTube video demonstration of the final product.
+- Completed and uploaded `README.md` with Part 2 documentation.
+
+## Summary
+- Readability: Major code refactoring and better documentation.  
+- Design Consistency: Enhanced visuals with refined color schemes and structure.  
+- Responsiveness: Fully optimized layouts across devices.  
+- Professionalism: Clean, modern interface with integrated media and improved UX.
+
+---
 
 Responsive design (Mobile):
 
@@ -146,6 +198,7 @@ Feedback from part 2:
 -Fixed missing information such as publication years, URLs, and access dates.
 -Proofread all references to ensure consistency and accuracy.
 -Added responsive design pictures into the ReadMe
+-Fixed the lack of dept for part 2 of the change log
 
 ## Referencing:
 
