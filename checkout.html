@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FRC Tuned</title>
+    <style>
+        /* Define color variables based on the FRC Tuned website theme */
+        :root {
+            --orange-accent: rgb(255, 111, 0); /* Primary accent color from style.css */
+            --dark-bg: #0a0a0a;             /* Page background */
+            --card-color: #1a1a1a;          /* Card/Container background (darker than page) */
+            --text-color: #f5f5f5;          /* Default light text */
+            --muted-text: #9ca3af;          /* Muted/secondary text */
+        }
+
+        /* Full-screen dark background */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container to mimic the overlay and give the card effect */
+        .container {
+            width: 90%;
+            max-width: 450px;
+            margin: 20px;
+            padding: 20px;
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--orange-accent); /* Header color set to accent */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Course item row layout */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+        }
+
+        .item-text {
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        /* Summary section styling */
+        .summary {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .text {
+            color: var(--muted-text);
+            font-size: 16px;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .text span:last-child {
+            font-weight: 500;
+        }
+
+        /* Total line styling */
+        .total {
+            color: var(--orange-accent);
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            padding-top: 5px;
+            border-top: 2px solid var(--orange-accent);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Main action button */
+        .button {
+            background-color: var(--orange-accent);
+            color: #fff;
+            padding: 14px;
+            border-radius: 6px;
+            margin-top: 25px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-align: center;
+            display: block;
+        }
+
+        .button:hover {
+            background-color: #cc5900; /* Darker orange for hover */
+        }
+        
+        .button:disabled {
+            background-color: #5d5d5d;
+            cursor: not-allowed;
+        }
+
+        /* Input fields in payment form */
+        #paymentForm input {
+            background-color: #2a2a2a; /* Slightly lighter dark background for input */
+            color: #fff;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--orange-accent); /* Orange border on inputs */
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Placeholder color styling */
+        #paymentForm input::placeholder {
+            color: var(--muted-text);
+            opacity: 1;
+        }
+
+        /* Back/secondary button */
+        .back-button {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+        
+        .back-button:hover .back-text {
+            color: var(--text-color);
+        }
+
+        .back-text {
+            color: var(--orange-accent); /* Back text is the accent color */
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .empty-text {
+            color: var(--muted-text);
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="checkoutContainer">
+        
+        <div id="summaryView" class="view">
+            <h1 class="header">Checkout</h1>
+            
+            <div id="courseList">
+                </div>
+            
+            <div class="summary">
+                <p class="text" id="subtotalDisplay"></p>
+                <div class="total" id="totalDisplay"></div>
+            </div>
+            
+            <button class="button" id="proceedToPayment">Proceed to Payment</button>
+            <button class="back-button" onclick="window.history.back()">
+                <span class="back-text">Back to Quote</span>
+            </button>
+        </div>
+
+        <div id="paymentView" class="view hidden">
+            <h1 class="header">Payment Details</h1>
+            <div class="total" id="paymentTotalDisplay"></div>
+
+            <form id="paymentForm">
+                <input type="text" id="cardName" placeholder="Name on Card" required>
+                <input type="text" id="cardNumber" placeholder="Card Number" maxlength="16" pattern="\d{16}" title="Card number must be 16 digits" required>
+                <input type="text" id="expiry" placeholder="Expiry Date (MM/YY)" pattern="\d{2}/\d{2}" title="Format: MM/YY" required>
+                <input type="password" id="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}" title="CVV must be 3 digits" required>
+
+                <button type="submit" class="button">Confirm Payment</button>
+            </form>
+            <button class="back-button" id="backToCheckout">
+                <span class="back-text">Back to Checkout</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Function to get query parameter by name
+        function getQueryParameter(name) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            // Decode URI component to handle spaces and JSON structure
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        
+        // --- Data Initialization ---
+        
+        // 1. Get the JSON data from the URL parameter
+        const selectedJson = getQueryParameter('selected');
+        let courses = []; // Renamed from 'courses' to be consistent with the original component
+
+        if (selectedJson) {
+            try {
+                courses = JSON.parse(selectedJson);
+            } catch (e) {
+                console.error("Failed to parse selected items from URL:", e);
+                // Fallback to empty array if parsing fails
+                courses = [];
+            }
+        } 
+
+        // Helper function to format currency as South African Rand (R)
+        function formatZAR(n) {
+            return 'R' + n.toLocaleString('en-ZA', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        // Calculate summary values
+        const subtotal = courses.reduce((sum, c) => sum + c.fee, 0);
+        const total = subtotal; // Total is now equal to the subtotal
+
+        // --- DOM Elements and View State ---
+
+        const summaryView = document.getElementById('summaryView');
+        const paymentView = document.getElementById('paymentView');
+        const courseList = document.getElementById('courseList');
+        const proceedToPaymentBtn = document.getElementById('proceedToPayment');
+        const backToCheckoutBtn = document.getElementById('backToCheckout');
+        const paymentForm = document.getElementById('paymentForm');
+
+        let showPayment = false; 
+
+        // --- Rendering & View Switching Functions ---
+
+        function updateSummary() {
+            // Update the Course List
+            if (courses.length === 0) {
+                courseList.innerHTML = '<p class="empty-text">No services selected from the quote page.</p>';
+                proceedToPaymentBtn.disabled = true;
+                proceedToPaymentBtn.textContent = 'No Services to Checkout';
+                proceedToPaymentBtn.style.opacity = 0.6;
+            } else {
+                courseList.innerHTML = courses.map(c => 
+                    `<div class="row">
+                        <span class="item-text">${c.title}</span>
+                        <span class="item-text">${formatZAR(c.fee)}</span>
+                    </div>`
+                ).join('');
+                
+                // Update the Summary calculations
+                document.getElementById('subtotalDisplay').innerHTML = `Subtotal: <span>${formatZAR(subtotal)}</span>`;
+                document.getElementById('totalDisplay').innerHTML = `Total: <span>${formatZAR(total)}</span>`;
+                document.getElementById('paymentTotalDisplay').innerHTML = `Total: <span>${formatZAR(total)}</span>`;
+            }
+        }
+
+        function switchView() {
+            if (showPayment) {
+                summaryView.classList.add('hidden');
+                paymentView.classList.remove('hidden');
+            } else {
+                summaryView.classList.remove('hidden');
+                paymentView.classList.add('hidden');
+            }
+            window.scrollTo(0, 0); 
+        }
+
+        // --- Event Handlers ---
+
+        // Proceed to Payment button click
+        proceedToPaymentBtn.addEventListener('click', () => {
+            showPayment = true;
+            switchView();
+        });
+
+        // Back to Checkout button click
+        backToCheckoutBtn.addEventListener('click', () => {
+            showPayment = false;
+            switchView();
+        });
+
+        // Payment Form Submission handler
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (paymentForm.checkValidity()) {
+                // In a real application, you would send card details to a payment gateway here.
+                alert(`Success: Payment of ${formatZAR(total)} confirmed!`);
+                
+                // Redirect to the home page (index.html) after successful payment
+                window.location.href = 'index.html'; 
+            } else {
+                 alert("Error: Please check and fill in all card details correctly.");
+            }
+        });
+
+        // --- Initialization ---
+        updateSummary();
+        switchView(); 
+    </script>
+</body>
+</html>
