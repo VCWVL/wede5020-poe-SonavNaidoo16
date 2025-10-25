@@ -240,3 +240,9 @@ W3Schools. (2024). HTML Tutorial. Available at: https://www.w3schools.com/html/ 
 Mozilla Developer Network (MDN). (2024). CSS Basics. Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS (Accessed: 24 October 2025).
 
 YouTube 2025. GOQK6rE63VU – embedded video [Online]. Available at: https://www.youtube.com/embed/GOQK6rE63VU (Accessed: 24 October 2025).
+
+Mozilla Developer Network (MDN) 2025 JSON.parse().[online} Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse (Accessed: 25 October 2025).
+
+Mozilla Developer Network (MDN) 2025. encodeURIComponent() and decodeURIComponent().[online] Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent (Accessed: 25 October 2025).
+
+CodezUp (2024) JavaScript Personal Website: A Step-by-Step Guide. Available at: https://codezup.com/build-a-personal-website-with-javascript/ (Accessed: 25 October 2025).
