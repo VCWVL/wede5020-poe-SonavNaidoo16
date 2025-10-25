@@ -40,298 +40,38 @@ header {
   align-items: center;
   padding: 20px 50px;
   background: #181818;
+  /* Added z-index to ensure sticky header overlays content */
+  z-index: 1000; 
+}
+/* Sticky Header Style */
+header.sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for lift effect */
+    transition: background 0.3s ease-in-out;
 }
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: rgb(255, 111, 0); /* Orange accent */
+  color: rgb(255, 111, 0);
 }
 .logo span {
   color: #fff;
 }
-nav {
-  display: flex;
-  align-items: center;
-}
 nav a {
   color: #fff;
-  margin: 0 15px;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-nav a.active,
-nav a:hover {
-  color: rgb(255, 111, 0);
-}
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 60px 80px;
-  background: linear-gradient(135deg, #111, #1a1a1a);
-  color: #fff;
-}
-.hero-content {
-  max-width: 50%;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #fff;
-}
-.buttons {
-  display: flex;
-  gap: 20px;
-}
-.btn {
-  padding: 12px 25px;
-  text-decoration: none;
-  font-weight: bold;
+  padding: 8px 15px;
   border-radius: 5px;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
-.btn.orange {
+nav a:hover,
+nav a.active {
   background: rgb(255, 111, 0);
-  color: #000;
-}
-.btn.black {
-  background: #000;
-  border: 2px solid rgb(255, 111, 0);
-  color: rgb(255, 111, 0);
-}
-.btn:hover {
-  opacity: 0.8;
-}
-.hero-image img {
-  max-width: 450px;
-  width: 100%;
-  height: auto;
-}
-.stats {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  gap: 60px;
-  padding: 50px 20px;
-  background: #222;
-}
-.stat h2 {
-  font-size: 2rem;
-  color: #fff;
-}
-.brands {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 30px 20px;
-  background: #111;
-}
-.brands img {
-  width: 60px;
-  filter: grayscale(100%);
-  transition: 0.3s;
-}
-.brands img:hover {
-  filter: grayscale(0%);
-}
-main.about {
-  padding: 2em;
-}
-section {
-  margin-bottom: 2em;
+  color: #111;
 }
 
-/* About Page Styling */
-.about {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-  line-height: 1.7;
-  color: #eee;
-}
-.about h1, .about h2 {
-  font-family: 'Orbitron', sans-serif;
-  color: rgb(255, 111, 0);
-  margin-bottom: 15px;
-}
-.about p, .about li {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-.about ul {
-  margin-left: 20px;
-  list-style: disc;
-}
-
-/* Team Section */
-.team-photos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-.team-photos img {
-  width: 250px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-  border: 2px solid rgb(255, 111, 0);
-  background: #222;
-}
-.team-photos img:hover {
-  transform: scale(1.05);
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-/* Footer*/
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #181818;
-  font-size: 0.9rem;
-  color: #fff;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/*Responsive Design*/
-/* Tablet */
-@media (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-content {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .team-photos img {
-    width: 180px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-  nav {
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  nav a {
-    margin: 10px 0;
-  }
-  .hero {
-    padding: 40px 20px;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .stats {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .team-photos img {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-@media screen {
-  .small {
-    font-size: 0.8rem;
-    color: #aaa;
-  } 
-}
-
-/* Services Page */
-.services {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
-.services h1 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-  color: rgb(255, 111, 0);
-}
-.service-card {
-  background: #1c1c1c;
-  padding: 25px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  border-left: 5px solid rgb(255, 111, 0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-card h2 {
-  margin-bottom: 15px;
-  color: #fff;
-}
-.service-card p {
-  color: #ddd;
-}
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-}
-
-/*CSS Reset*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #0d0d0d;
-  color: #f0f0f0;
-}
-
-/*assisted by chatgpt*/
-/*Typography*/
-h1, h2, h3 {
-  font-family: 'Segoe UI', sans-serif;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  color: rgb(255, 111, 0);
-}
-p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-a {
-  text-decoration: none;
-  color: #ccc;
-  transition: color 0.3s;
-}
-a:hover {
-  color: rgb(255, 111, 0);
-}
-/*end of assistance by chatgpt*/
-/*Layout with Flexbox*/
+/* Layout with Flexbox */
 header {
   display: flex;
   justify-content: space-between;
@@ -369,46 +109,208 @@ button, .btn {
   background: rgb(255, 111, 0);
   color: #fff;
   padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
 }
-
 button:hover, .btn:hover {
-  background: #ff7f32;
-  transform: scale(1.05);
+  background: #ff8c00; /* Slightly lighter orange on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+.btn.black {
+  background: #333;
+  color: #fff;
+  border: 1px solid rgb(255, 111, 0);
+}
+.btn.black:hover {
+  background: #444;
+  border-color: #ff8c00;
 }
 
-/*Responsive Design */
-/* Tablets */
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  height: 80vh; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  color: #fff;
+  overflow: hidden; /* Ensure image and overlay don't leak */
+}
+.hero-content {
+  z-index: 2;
+  max-width: 50%;
+  padding-right: 20px;
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  color: rgb(255, 111, 0);
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.hero .buttons {
+  display: flex;
+  gap: 20px;
+}
+.hero-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; /* Make the image slightly transparent */
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1;
+}
+
+/* Stats Section Styles */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background: #000;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+.stat h2 {
+  color: rgb(255, 111, 0);
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+.stat p {
+  color: #ddd;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Brands Section Styles */
+.brands {
+  padding: 30px 50px;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #333;
+}
+.brands img {
+  height: 50px;
+  margin: 15px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.brands img:hover {
+  opacity: 1;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #777;
+  border-top: 2px solid rgb(255, 111, 0);
+}
+
+/* --------------------------------- */
+/* ANIMATION / SCROLL-REVEAL CLASSES */
+/* --------------------------------- */
+
+/* Base state: invisible and slightly offset downwards */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Active state: visible and in original position */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delay for sections */
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+
+/* --------------------------------- */
+/* Media Queries for Responsiveness */
+/* --------------------------------- */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
-    align-items: flex-start;
+    padding: 15px 20px;
+    text-align: center;
   }
   nav {
-    flex-wrap: wrap;
+    margin-top: 10px;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .gallery img {
-    height: 180px;
-  }
-}
-/* Mobile */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.9rem;
-  }
-  nav {
+  .hero {
     flex-direction: column;
-    gap: 5px;
-  }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-  .gallery img {
     height: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero .buttons {
+    justify-content: center;
+  }
+  .hero-image {
+    position: static;
+    height: 300px;
+  }
+  .overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+  }
+  .stats {
+    flex-direction: column;
+    padding: 30px 10px;
+  }
+  .stat {
+    margin-bottom: 20px;
+  }
+  .brands img {
+    height: 40px;
+    margin: 10px;
   }
 }
-/* End of CSS Reset */

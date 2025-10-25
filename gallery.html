@@ -9,12 +9,12 @@
     body { 
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background: #0d0d0d; /* Dark background for contrast */
       color: white; /* Default text color */
     }
 
-    /* Header styling */
+    /* Header styling (already in style.css, but kept local for clarity/overrides) */
     header {
       display: flex; /* Horizontal layout for logo and nav */
       justify-content: space-between;
@@ -24,159 +24,121 @@
       border-bottom: 2px solid rgb(255, 111, 0); /* Orange bottom border */
     }
 
-    /* Logo text styling */
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    /* Highlight part of logo */
-    .logo span {
-      color: rgb(255, 111, 0);
-    }
-
-    /* Navigation links */
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #ccc; /* Light gray links */
-      transition: color 0.3s; /* Smooth hover effect */
-    }
-
-    /* Hover and active page link effect */
-    nav a:hover,
-    nav a.active {
-      color: rgb(255, 111, 0);
-    }
-
-    /* Main page heading */
-    h1 {
-      text-align: center;
-      margin: 20px 0;
-      color: #f0f0f0;
+    /* Main content styling */
+    .gallery-container {
+        padding: 40px 50px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     /* Gallery grid layout */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-      gap: 15px; /* Space between images */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
     }
 
-    /* Individual gallery image styling */
     .gallery img {
-      width: 100%; /* Full width of grid cell */
-      height: 200px;
-      object-fit: cover; 
-      border-radius: 10px; 
-      transition: transform 0.3s, box-shadow 0.3s; 
-      cursor: pointer; 
-    }
-
-    /* Hover effect for images */
-    .gallery img:hover {
-      transform: scale(1.05); 
-      box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3); 
-    }
-
-    /* Video Section Styling */
-    .video-section {
-      text-align: center;
-      margin: 50px 0;
-    }
-
-    .video-section h2 {
-      color: rgb(255, 111, 0); /* Orange heading */
-      margin-bottom: 20px;
-    }
-
-    /* Responsive YouTube embed */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 ratio */
-      height: 0;
-      overflow: hidden;
-      max-width: 80%; /* keeps it from stretching full width */
-      margin: 0 auto; /* center align */
-      border: 3px solid rgb(255, 111, 0); /* orange border to match theme */
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0px 4px 15px rgba(255, 111, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .video-container:hover {
-      transform: scale(1.03); 
-      box-shadow: 0px 6px 20px rgba(255, 111, 0, 0.7);
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 20px rgba(255, 111, 0, 0.5); /* Orange shadow on hover */
     }
 
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 10px;
+    /* Video section styling */
+    .video-section {
+        background: #181818;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .video-section h2 {
+        color: rgb(255, 111, 0);
+        margin-bottom: 20px;
+    }
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
     }
 
-    /* Footer styling */
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #111;
-      border-top: 2px solid rgb(255, 111, 0);
-      margin-top: 30px;
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-container {
+        padding: 20px;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header with logo and navigation -->
-  <header>
+  <!-- Header with sticky navigation -->
+  <header class="sticky">
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="gallery.html" class="active">Gallery</a> <!-- Active page highlighted -->
+      <a href="gallery.html" class="active">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- title for gallery -->
-  <h1>FRC's Image Gallery</h1>
+  <!-- Main content wrapper -->
+  <main class="gallery-container">
+    <h1>Our Gallery</h1>
 
-  <!-- Gallery grid containing images -->
-  <div class="gallery">
-    <img src="pictures/ecu.jpg" alt="ECU Tuning">   <!-- (i.ytimg, 2025) --> 
-    <img src="pictures/suspension.png" alt="suspension">  <!-- (Bing, 2025) --> 
-    <img src="pictures/air susp.jpg" alt="air suspension"> <!-- (Holley, 2025) --> 
-    <img src="pictures/coil.png" alt="coilovers">  <!-- (Parkmuffler, 2025) --> 
-    <img src="pictures/dyno.png" alt="dyno tuning"> <!-- (FRC, 2025) --> 
-    <img src="pictures/exhaust.jpg" alt="exhaust system"> <!-- (FRC, 2025) --> 
-    <img src="pictures/rb26-motor-nissan-768x512.jpg" alt="engine tuning"> <!-- (Low-offset, 2025) --> 
-    <img src="pictures/exh exit.png" alt="exhaust exit"> 
-    <img src="pictures/track.png" alt="track">  <!-- (FRC, 2025) --> 
-    <img src="pictures/dynp place.png" alt="dyno"> <!-- (FRC, 2025) --> 
-  </div>
-
-  <!-- Embedded YouTube Video -->
-  <div class="video-section">
-    <h2>Watch Our Tuning in Action</h2>
-    <div class="video-container"> 
-      <!-- (Johan van Schalkwyk, 2025) --> 
-      <iframe src="https://www.youtube.com/embed/GOQK6rE63VU"  
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    <!-- Gallery grid containing images - Added 'reveal' class -->
+    <div class="gallery reveal">
+      <img src="pictures/ecu.jpg" alt="ECU Tuning">   <!-- (i.ytimg, 2025) --> 
+      <img src="pictures/suspension.png" alt="suspension">  <!-- (Bing, 2025) --> 
+      <img src="pictures/air susp.jpg" alt="air suspension"> <!-- (Holley, 2025) --> 
+      <img src="pictures/coil.png" alt="coilovers">  <!-- (Parkmuffler, 2025) --> 
+      <img src="pictures/dyno.png" alt="dyno tuning"> <!-- (FRC, 2025) --> 
+      <img src="pictures/exhaust.jpg" alt="exhaust system"> <!-- (FRC, 2025) --> 
+      <img src="pictures/rb26-motor-nissan-768x512.jpg" alt="engine tuning"> <!-- (Low-offset, 2025) --> 
+      <img src="pictures/exh exit.png" alt="exhaust exit"> 
+      <img src="pictures/track.png" alt="track">  <!-- (FRC, 2025) --> 
+      <img src="pictures/dynp place.png" alt="dyno"> <!-- (FRC, 2025) --> 
     </div>
-  </div>
 
-  <!-- Footer for FRC -->
+    <!-- Embedded YouTube Video - Added 'reveal' and 'reveal-delay-1' class -->
+    <div class="video-section reveal reveal-delay-1">
+      <h2>Watch Our Latest Project Video</h2>
+      <div class="video-wrapper">
+              <!-- (Johan van Schalkwyk, 2025) --> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/GOQK6rE63VU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
+
+  <!-- Link to the JavaScript file for animations -->
+  <script src="script.js"></script>
 </body>
 </html>

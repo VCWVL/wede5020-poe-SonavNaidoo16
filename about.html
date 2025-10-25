@@ -7,6 +7,39 @@
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts for modern design -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Specific styles for the about page */
+    .about {
+      padding: 40px 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .intro, .technology, .commitment, .team {
+      background: #181818;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .team-photos {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .team-photos img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      .about {
+        padding: 20px;
+      }
+      .team-photos {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -24,32 +57,20 @@
   <!-- About Content -->
   <main class="about">
     
-    <!-- Intro -->
-    <section class="intro">
+    <!-- Intro - Added 'reveal' class -->
+    <section class="intro reveal">
       <h1>Who We Are</h1>
       <p>
         Welcome to <strong>FRC Tuned</strong>, your premier destination for expert ECU & TCU software development since 2004. 
-        Founded by <strong>Praga Govender</strong>, we’ve been leading the way in automotive tuning and diagnostics for over two decades.
-      </p>
-      <p>
-        Our mission is to deliver customized solutions that enhance <em>performance</em> and <em>efficiency</em> for every client.
-      </p>
-    </section>
-
-    <!-- History -->
-    <section class="history">
-      <h2>Our Journey</h2>
-      <p>
-        From powerful diesel bakkies to high-performance sports cars, we’ve tuned them all. 
-        Our reputation is built on excellence and precision.
+        Founded by <strong>Praga Govender</strong>, we’ve been leading the way in performance and precision.
       </p>
       <p>
         Our skilled technicians and engineers bring innovation and passion into every project, tailoring solutions to meet unique customer goals.
       </p>
     </section>
 
-    <!-- Technology -->
-    <section class="technology">
+    <!-- Technology - Added 'reveal' and 'reveal-delay-1' class -->
+    <section class="technology reveal reveal-delay-1">
       <h2>What We Do</h2>
       <p>We combine advanced technology with automotive engineering expertise. Our services include:</p>
       <ul>
@@ -59,8 +80,8 @@
       </ul>
     </section>
 
-    <!-- Commitment -->
-    <section class="commitment">
+    <!-- Commitment - Added 'reveal' and 'reveal-delay-2' class -->
+    <section class="commitment reveal reveal-delay-2">
       <h2>Our Commitment</h2>
       <p>
         We provide top-tier service and unmatched expertise, ensuring your vehicle performs at its absolute best. 
@@ -71,8 +92,8 @@
       </p>
     </section>
 
-    <!-- Team -->
-    <section class="team">
+    <!-- Team - Added 'reveal' and 'reveal-delay-3' class -->
+    <section class="team reveal reveal-delay-3">
       <h2>Meet Our Team</h2>
       <div class="team-photos">
         <img src="pictures/Screenshot_2025-08-27_083138-removebg-preview.png" alt="Workshop team photo">
@@ -86,5 +107,8 @@
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
+  
+  <!-- Link to the JavaScript file for animations -->
+  <script src="script.js"></script>
 </body>
 </html>

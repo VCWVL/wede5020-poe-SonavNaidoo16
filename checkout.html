@@ -12,6 +12,7 @@
             --card-color: #1a1a1a;          /* Card/Container background (darker than page) */
             --text-color: #f5f5f5;          /* Default light text */
             --muted-text: #9ca3af;          /* Muted/secondary text */
+            --error-color: #dc2626;         /* Red for errors */
         }
 
         /* Full-screen dark background */
@@ -31,252 +32,318 @@
             width: 90%;
             max-width: 450px;
             margin: 20px;
-            padding: 20px;
+            padding: 30px;
             background-color: var(--card-color);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .header {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--orange-accent); /* Header color set to accent */
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        /* Course item row layout */
-        .row {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 0;
-        }
-
-        .item-text {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             color: var(--text-color);
-            font-size: 16px;
         }
 
-        /* Summary section styling */
-        .summary {
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        /* Headings and Titles */
+        h1, h2 {
+            color: var(--orange-accent);
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .text {
-            color: var(--muted-text);
-            font-size: 16px;
-            margin-bottom: 4px;
+        /* Order Summary Styling */
+        .summary-item {
             display: flex;
             justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
         }
-        .text span:last-child {
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-item .name {
+            color: var(--muted-text);
+        }
+
+        /* Total display */
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-top: 10px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-top: 2px solid var(--orange-accent);
+        }
+
+        /* Buttons */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: var(--orange-accent);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(255, 140, 50);
+            transform: translateY(-2px);
+        }
+        
+        /* Back Button - Specific Styling */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            padding: 0;
+            cursor: pointer;
+            transition: color 0.2s;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn:hover {
+            color: var(--text-color);
+        }
+
+        /* Payment Form Styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: 500;
         }
 
-        /* Total line styling */
-        .total {
-            color: var(--orange-accent);
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 10px;
-            padding-top: 5px;
-            border-top: 2px solid var(--orange-accent);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Main action button */
-        .button {
-            background-color: var(--orange-accent);
-            color: #fff;
-            padding: 14px;
-            border-radius: 6px;
-            margin-top: 25px;
+        input[type="text"], input[type="number"], input[type="month"] {
             width: 100%;
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            text-align: center;
-            display: block;
-        }
-
-        .button:hover {
-            background-color: #cc5900; /* Darker orange for hover */
-        }
-        
-        .button:disabled {
-            background-color: #5d5d5d;
-            cursor: not-allowed;
-        }
-
-        /* Input fields in payment form */
-        #paymentForm input {
-            background-color: #2a2a2a; /* Slightly lighter dark background for input */
-            color: #fff;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid var(--orange-accent); /* Orange border on inputs */
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        /* Placeholder color styling */
-        #paymentForm input::placeholder {
-            color: var(--muted-text);
-            opacity: 1;
-        }
-
-        /* Back/secondary button */
-        .back-button {
-            margin-top: 20px;
-            width: 100%;
-            text-align: center;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px 0;
-        }
-        
-        .back-button:hover .back-text {
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #2a2a2a;
             color: var(--text-color);
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
-        .back-text {
-            color: var(--orange-accent); /* Back text is the accent color */
-            font-size: 16px;
-            font-weight: 600;
-            transition: color 0.3s;
+        .card-details-row {
+            display: flex;
+            gap: 15px;
         }
 
-        .empty-text {
-            color: var(--muted-text);
-            text-align: center;
-            margin-top: 20px;
+        .card-details-row > div {
+            flex: 1;
         }
-        
+
+        /* Utility Class */
         .hidden {
             display: none !important;
+        }
+
+        /* Message Box Styling */
+        #messageBox {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: none; /* Initially hidden */
+        }
+        .error {
+            background-color: rgba(220, 38, 38, 0.2); /* Light red background */
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="checkoutContainer">
-        
-        <div id="summaryView" class="view">
-            <h1 class="header">Checkout</h1>
-            
-            <div id="courseList">
-                </div>
-            
-            <div class="summary">
-                <p class="text" id="subtotalDisplay"></p>
-                <div class="total" id="totalDisplay"></div>
+
+    <div class="container">
+        <!-- Message Box for Alerts (Replaces alert()) -->
+        <div id="messageBox" class="error hidden"></div>
+
+        <!-- Order Summary View -->
+        <div id="summaryView">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <!-- New Back Button -->
+                <button id="backToQuoteBtn" class="back-btn" type="button">
+                    &larr; Back to Quote
+                </button>
+                <h1 style="text-align: right; margin: 0;">Order Summary</h1>
+            </div>
+
+            <div id="summaryDetails">
+                <!-- Items will be populated here by JavaScript -->
             </div>
             
-            <button class="button" id="proceedToPayment">Proceed to Payment</button>
-            <button class="back-button" onclick="window.history.back()">
-                <span class="back-text">Back to Quote</span>
-            </button>
+            <div class="total-row">
+                <span>Total Due:</span>
+                <span id="totalAmount">R 0.00</span>
+            </div>
+            
+            <button id="proceedToPaymentBtn" class="btn btn-primary">Proceed to Payment</button>
         </div>
 
-        <div id="paymentView" class="view hidden">
-            <h1 class="header">Payment Details</h1>
-            <div class="total" id="paymentTotalDisplay"></div>
-
+        <!-- Payment View -->
+        <div id="paymentView" class="hidden">
+            <h2>Payment Details</h2>
+            
             <form id="paymentForm">
-                <input type="text" id="cardName" placeholder="Name on Card" required>
-                <input type="text" id="cardNumber" placeholder="Card Number" maxlength="16" pattern="\d{16}" title="Card number must be 16 digits" required>
-                <input type="text" id="expiry" placeholder="Expiry Date (MM/YY)" pattern="\d{2}/\d{2}" title="Format: MM/YY" required>
-                <input type="password" id="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}" title="CVV must be 3 digits" required>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" required pattern="\d{16}" title="Must be 16 digits" placeholder="4000 1234 5678 9010">
+                </div>
 
-                <button type="submit" class="button">Confirm Payment</button>
+                <div class="card-details-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry (MM/YY)</label>
+                        <input type="text" id="expiry" required pattern="\d{2}\/\d{2}" title="Must be MM/YY format" placeholder="12/26">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" required pattern="\d{3,4}" title="Must be 3 or 4 digits" placeholder="123">
+                    </div>
+                </div>
+
+                <button id="backToCheckoutBtn" type="button" class="back-btn" style="margin-top: 15px;">&larr; Back to Order Summary</button>
+
+                <button type="submit" class="btn btn-primary">Complete R <span id="paymentTotalAmount">0.00</span> Payment</button>
             </form>
-            <button class="back-button" id="backToCheckout">
-                <span class="back-text">Back to Checkout</span>
-            </button>
         </div>
     </div>
 
     <script>
-        // Function to get query parameter by name
-        function getQueryParameter(name) {
-            name = name.replace(/[\[\]]/g, '\\$&');
-            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            const results = regex.exec(window.location.href);
-            if (!results) return null;
-            if (!results[2]) return '';
-            // Decode URI component to handle spaces and JSON structure
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-        
-        // --- Data Initialization ---
-        
-        // 1. Get the JSON data from the URL parameter
-        const selectedJson = getQueryParameter('selected');
-        let courses = []; // Renamed from 'courses' to be consistent with the original component
-
-        if (selectedJson) {
-            try {
-                courses = JSON.parse(selectedJson);
-            } catch (e) {
-                console.error("Failed to parse selected items from URL:", e);
-                // Fallback to empty array if parsing fails
-                courses = [];
-            }
-        } 
-
-        // Helper function to format currency as South African Rand (R)
-        function formatZAR(n) {
-            return 'R' + n.toLocaleString('en-ZA', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-        }
-
-        // Calculate summary values
-        const subtotal = courses.reduce((sum, c) => sum + c.fee, 0);
-        const total = subtotal; // Total is now equal to the subtotal
-
-        // --- DOM Elements and View State ---
-
+        // --- Globals ---
         const summaryView = document.getElementById('summaryView');
         const paymentView = document.getElementById('paymentView');
-        const courseList = document.getElementById('courseList');
-        const proceedToPaymentBtn = document.getElementById('proceedToPayment');
-        const backToCheckoutBtn = document.getElementById('backToCheckout');
+        const summaryDetails = document.getElementById('summaryDetails');
+        const totalAmountSpan = document.getElementById('totalAmount');
+        const paymentTotalAmountSpan = document.getElementById('paymentTotalAmount');
+        const proceedToPaymentBtn = document.getElementById('proceedToPaymentBtn');
+        const backToQuoteBtn = document.getElementById('backToQuoteBtn'); // The new back button
+        const backToCheckoutBtn = document.getElementById('backToCheckoutBtn');
         const paymentForm = document.getElementById('paymentForm');
+        const messageBox = document.getElementById('messageBox');
+        
+        let showPayment = false;
+        let selectedItems = [];
+        let total = 0;
 
-        let showPayment = false; 
+        // --- Utility Functions ---
 
-        // --- Rendering & View Switching Functions ---
-
-        function updateSummary() {
-            // Update the Course List
-            if (courses.length === 0) {
-                courseList.innerHTML = '<p class="empty-text">No services selected from the quote page.</p>';
-                proceedToPaymentBtn.disabled = true;
-                proceedToPaymentBtn.textContent = 'No Services to Checkout';
-                proceedToPaymentBtn.style.opacity = 0.6;
+        // Function to safely display messages (Replaces alert())
+        function showMessage(message, isError = true) {
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden', 'error');
+            if (isError) {
+                messageBox.classList.add('error');
             } else {
-                courseList.innerHTML = courses.map(c => 
-                    `<div class="row">
-                        <span class="item-text">${c.title}</span>
-                        <span class="item-text">${formatZAR(c.fee)}</span>
-                    </div>`
-                ).join('');
-                
-                // Update the Summary calculations
-                document.getElementById('subtotalDisplay').innerHTML = `Subtotal: <span>${formatZAR(subtotal)}</span>`;
-                document.getElementById('totalDisplay').innerHTML = `Total: <span>${formatZAR(total)}</span>`;
-                document.getElementById('paymentTotalDisplay').innerHTML = `Total: <span>${formatZAR(total)}</span>`;
+                // For success, keep it clean or add a success class if needed
+                messageBox.style.backgroundColor = 'rgba(255, 111, 0, 0.2)';
+                messageBox.style.color = 'var(--orange-accent)';
+                messageBox.style.border = '1px solid var(--orange-accent)';
             }
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+                messageBox.removeAttribute('style');
+            }, 5000);
         }
 
+        // Format number as ZAR currency string
+        function formatZAR(amount) {
+            return `R ${amount.toFixed(2)}`;
+        }
+
+        // Parse query parameters
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // --- Core Logic ---
+
+        // 1. Get data from URL and populate the selectedItems array
+        function loadItems() {
+            const encodedData = getQueryParam('selected');
+            if (encodedData) {
+                try {
+                    const decodedJson = decodeURIComponent(encodedData);
+                    const parsedItems = JSON.parse(decodedJson);
+                    
+                    if (Array.isArray(parsedItems) && parsedItems.length > 0) {
+                        selectedItems = parsedItems;
+                        // Calculate total
+                        total = selectedItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                        return true;
+                    }
+                } catch (e) {
+                    console.error("Error parsing selected items:", e);
+                    // Redirect back if data is corrupt
+                    window.location.href = 'quote.html';
+                }
+            }
+            
+            // If no data, redirect back to quote page
+            window.location.href = 'quote.html';
+            return false;
+        }
+
+        // 2. Update the visual summary
+        function updateSummary() {
+            summaryDetails.innerHTML = '';
+            
+            if (selectedItems.length === 0) {
+                summaryDetails.innerHTML = '<p class="text-center text-muted-text">No services selected. Please go back to the quote page.</p>';
+            }
+
+            selectedItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('summary-item');
+                
+                const nameSpan = document.createElement('span');
+                nameSpan.classList.add('name');
+                nameSpan.textContent = `${item.name} (x${item.qty})`;
+                
+                const priceSpan = document.createElement('span');
+                priceSpan.classList.add('price');
+                priceSpan.textContent = formatZAR(item.price * item.qty);
+                
+                itemDiv.appendChild(nameSpan);
+                itemDiv.appendChild(priceSpan);
+                summaryDetails.appendChild(itemDiv);
+            });
+
+            totalAmountSpan.textContent = formatZAR(total);
+            paymentTotalAmountSpan.textContent = formatZAR(total);
+        }
+
+        // 3. Switch between summary and payment forms
         function switchView() {
             if (showPayment) {
                 summaryView.classList.add('hidden');
@@ -284,42 +351,53 @@
             } else {
                 summaryView.classList.remove('hidden');
                 paymentView.classList.add('hidden');
+                messageBox.classList.add('hidden'); // Clear message when switching back
             }
             window.scrollTo(0, 0); 
         }
 
         // --- Event Handlers ---
 
-        // Proceed to Payment button click
+        // 1. Back to Quote button click (NEW)
+        backToQuoteBtn.addEventListener('click', () => {
+            window.location.href = 'quote.html';
+        });
+
+        // 2. Proceed to Payment button click
         proceedToPaymentBtn.addEventListener('click', () => {
             showPayment = true;
             switchView();
         });
 
-        // Back to Checkout button click
+        // 3. Back to Checkout button click
         backToCheckoutBtn.addEventListener('click', () => {
             showPayment = false;
             switchView();
         });
 
-        // Payment Form Submission handler
+        // 4. Payment Form Submission handler
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             if (paymentForm.checkValidity()) {
                 // In a real application, you would send card details to a payment gateway here.
-                alert(`Success: Payment of ${formatZAR(total)} confirmed!`);
+                showMessage(`Success: Payment of ${formatZAR(total)} confirmed! Redirecting...`, false);
                 
                 // Redirect to the home page (index.html) after successful payment
-                window.location.href = 'index.html'; 
+                setTimeout(() => {
+                    window.location.href = 'index.html'; 
+                }, 2000); // Wait 2 seconds so the user can see the success message
+                
             } else {
-                 alert("Error: Please check and fill in all card details correctly.");
+                 showMessage("Error: Please check and fill in all card details correctly.");
             }
         });
 
         // --- Initialization ---
-        updateSummary();
-        switchView(); 
+        if (loadItems()) {
+            updateSummary();
+            switchView(); 
+        }
     </script>
 </body>
 </html>

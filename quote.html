@@ -33,408 +33,443 @@
     /* Header styling */
     header{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      padding:20px 50px;
-      background:#181818;
+      align-items:center;
+      padding:15px 30px;
+      background:#111;
       border-bottom:2px solid var(--accent);
+      position:sticky; /* Keep header visible */
+      top:0;
+      z-index:10;
     }
+
     .logo{
-      font-size:1.8rem;
+      font-size:1.5rem;
       font-weight:bold;
-      color:var(--text);
+      color:#fff;
     }
     .logo span{
       color:var(--accent);
     }
     nav a{
       margin-left:20px;
-      padding:5px 10px;
-      border-radius:5px;
-      transition:color 0.3s, background 0.3s;
+      color:var(--text);
+      transition:color .2s;
     }
     nav a:hover{
       color:var(--accent);
     }
-    nav a.active{
-      background:var(--accent);
-      color:var(--bg);
-    }
 
-    /* Main layout for quote page */
-    .quote-page{
-      display:flex;
-      max-width:1200px;
+    /* Main Container for Quote Page */
+    .quote-container{
+      max-width:900px;
       margin:30px auto;
-      gap:30px;
-      padding:0 20px;
-    }
-
-    .service-list{
-      flex:3;
       padding:20px;
-      background:var(--card);
-      border-radius:10px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.2);
     }
 
-    /* Service Categories */
-    .service-category{
-      margin-bottom:30px;
-      border-bottom:1px solid #333;
-      padding-bottom:15px;
-    }
-    .service-category:last-child{
-      border-bottom:none;
-      margin-bottom:0;
-    }
-    .service-category h2{
+    /* Section Header Styles */
+    .quote-container h1{
       color:var(--accent);
-      margin-bottom:15px;
-      border-bottom:2px solid var(--accent);
-      display:inline-block;
-      padding-bottom:5px;
-      font-size:1.8rem;
+      text-align:center;
+      margin-bottom:10px;
     }
 
-    /* Individual service item row */
+    .info-note{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:30px;
+      font-size:0.9rem;
+    }
+
+    /* Service Categories (Card Style) */
+    .service-category{
+      background:var(--card);
+      padding:20px;
+      margin-bottom:20px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .service-category h2{
+      color:var(--text);
+      border-bottom:2px solid var(--accent);
+      padding-bottom:10px;
+      margin-bottom:15px;
+      font-size:1.5rem;
+    }
+
+    /* Individual Item Row */
     .item-row{
       display:flex;
+      justify-content:space-between;
       align-items:center;
       padding:10px 0;
-      border-top:1px solid #2a2a2a;
+      border-bottom:1px solid #2a2a2a;
     }
-    .item-row:first-child{
-      border-top:none;
+
+    .item-row:last-of-type{
+      border-bottom:none;
     }
 
     .item-details{
+      display:flex;
+      align-items:center;
       flex-grow:1;
-      display:flex;
-      align-items:center;
     }
+
     .item-details label{
-      cursor:pointer;
-      font-size:1.1rem;
-      margin-left:10px;
-      color:var(--text);
-    }
-    .item-details small{
-      color:var(--muted);
-      margin-left:10px;
+        margin-left:10px;
+        font-size:1rem;
+        cursor:pointer;
+        user-select:none;
     }
 
-    .price-display{
-      width:100px;
-      text-align:right;
-      font-weight:bold;
+    .item-price{
       color:var(--accent);
+      font-weight:bold;
+      width:100px; /* Fixed width for price */
+      text-align:right;
+      margin-right:20px;
     }
 
-    .item-quantity{
-      width:100px;
-      text-align:center;
+    .quantity-control{
       display:flex;
       align-items:center;
-      justify-content:flex-end;
+      gap:10px;
     }
-    .item-quantity label{
-      font-size:0.9rem;
-      margin-right:10px;
-      color:var(--muted);
-    }
+
     .qty{
       width:50px;
       padding:5px;
+      text-align:center;
+      background:var(--bg);
       border:1px solid #333;
-      background:#222;
       color:var(--text);
       border-radius:5px;
-      text-align:center;
+      -moz-appearance: textfield; /* Hide arrows in Firefox */
     }
+    .qty::-webkit-inner-spin-button, 
+    .qty::-webkit-outer-spin-button { 
+        -webkit-appearance: none; /* Hide arrows in Chrome/Safari */
+        margin: 0; 
+    }
+
     .qty:disabled{
-      opacity:0.5;
+      opacity:0.4;
+      cursor:not-allowed;
+    }
+    
+    .itemChk{
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+        cursor: pointer;
+    }
+
+
+    /* Summary Section */
+    .summary-card{
+      background:var(--card);
+      padding:20px;
+      border-radius:10px;
+      margin-top:30px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .summary-card p{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+    
+    #total-section{
+      border-top:2px solid var(--accent);
+      padding-top:15px;
+      margin-top:15px;
+      font-size:1.5rem;
+      font-weight:bold;
+      color:var(--accent);
+    }
+
+    /* Checkout Button */
+    #proceed-to-checkout{
+      width:100%;
+      padding:15px;
+      margin-top:20px;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      font-size:1.1rem;
+      font-weight:bold;
+      cursor:pointer;
+      transition:background .2s, opacity .2s;
+    }
+
+    #proceed-to-checkout:hover:not(:disabled){
+      background:var(--accent-dark);
+    }
+
+    #proceed-to-checkout:disabled{
+      background:#4a4a4a;
       cursor:not-allowed;
     }
 
-    /* Sidebar/Summary Styling */
-    aside{
-      flex:1;
-      min-width:300px;
-      padding:20px;
-      background:var(--card);
-      border-radius:10px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.2);
-      position:sticky;
-      top:80px; /* Aligns with header height */
-      height:fit-content;
-    }
-    aside h2{
-      font-size:1.5rem;
-      margin-bottom:20px;
-      color:var(--text);
-      border-bottom:1px solid #333;
-      padding-bottom:10px;
-    }
-
-    /* Summary Actions (Total and Buttons) */
-    .summary-actions{
-      margin-top:20px;
-      padding-top:20px;
-      border-top:2px solid var(--accent);
-      text-align:center;
-    }
-    #totalLabel{
-      font-size:1.2rem;
-      font-weight:bold;
-      margin-bottom:5px;
-      color:var(--text);
-    }
-    #totalAmt{
-      display:block;
-      font-size:2.5rem;
-      font-weight:bolder;
-      color:var(--accent);
-      margin-bottom:15px;
-    }
-
-    /* Buttons */
-    .btn.primary{
-      background:var(--accent);
-      color:#000;
-      font-weight:bold;
-      padding:12px 20px;
-      border:none;
-      border-radius:5px;
-      cursor:pointer;
-      display:block;
-      width:100%;
-      margin-top:10px; /* Spacing between buttons */
-      transition:background 0.3s;
-    }
-    .btn.primary:hover{
-      background:var(--accent-dark);
-    }
-    .btn.primary:disabled {
-      background: #333;
-      cursor: not-allowed;
-      color: #999;
-    }
-
-    /* Footer styles */
-    footer{
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      border-top:1px solid #222;
-      color:var(--muted);
-      background:#111;
-      width:100%;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .quote-page {
-        flex-direction: column;
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 600px) {
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:15px 20px;
       }
-      aside {
-        position: static;
-        width: 100%;
+      nav{
+        margin-top:10px;
+        flex-direction:row;
+        gap:10px;
+        width:100%;
+        justify-content:space-around;
       }
-      header {
-        padding: 15px 20px;
+      .quote-container{
+        margin:15px auto;
+        padding:10px;
       }
-      nav a {
-        margin-left: 10px;
+      .item-row{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:15px 0;
+      }
+      .item-details{
+        margin-bottom:10px;
+      }
+      .item-price{
+        width:auto;
+        text-align:left;
+        margin-right:0;
+      }
+      .quantity-control{
+        width:100%;
+        justify-content:space-between;
+      }
+      .qty{
+        flex-grow:1;
+        max-width:80px;
+      }
+      .item-details label{
+          max-width: 70%;
       }
     }
   </style>
-
 </head>
 <body>
-  <div id="app-container">
-    <header>
-      <div class="logo">FRC <span>Tuned</span></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-        <a href="quote.html" class="active">Quote</a>
-      </nav>
-    </header>
+  
+  <!-- Header with sticky navigation -->
+  <header>
+    <div class="logo">FRC <span>Tuned</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <main class="quote-page">
-      
-      <section class="service-list">
-        <h1>Get Your Custom Quote</h1>
-        <p>Select the services you are interested in. The total will update automatically, and you can then proceed to payment.</p>
+  <main class="quote-container">
+    <h1>Get Quote & Order</h1>
+    <p class="info-note">
+      Select the services you require below. Prices are for labor/software only unless otherwise specified. 
+      For parts pricing and a final, confirmed quote, please proceed to checkout and submit your details.
+    </p>
 
-        <form id="quoteForm">
-          
-          <div class="service-category">
-            <h2>ECU & Tuning</h2>
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="ecu_stage1" class="itemChk" data-price="4500">
-                <label for="ecu_stage1">Stage 1 ECU Remap</label>
-              </div>
-              <span class="price-display">R4,500</span>
-              <div class="item-quantity">
-                <label for="ecu_stage1_qty">Qty:</label>
-                <input type="number" id="ecu_stage1_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
+    <form id="quote-form">
 
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="ecu_dyno" class="itemChk" data-price="6500">
-                <label for="ecu_dyno">Custom Dyno Tuning</label>
-              </div>
-              <span class="price-display">R6,500</span>
-              <div class="item-quantity">
-                <label for="ecu_dyno_qty">Qty:</label>
-                <input type="number" id="ecu_dyno_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-            
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="tcu_remap" class="itemChk" data-price="3500">
-                <label for="tcu_remap">TCU (Transmission) Remap</label>
-              </div>
-              <span class="price-display">R3,500</span>
-              <div class="item-quantity">
-                <label for="tcu_remap_qty">Qty:</label>
-                <input type="number" id="tcu_remap_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-          </div>
-
-          <div class="service-category">
-            <h2>Suspension Upgrades</h2>
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="susp_coilovers" class="itemChk" data-price="12000">
-                <label for="susp_coilovers">Coilover Installation (Parts not included)</label>
-              </div>
-              <span class="price-display">R12,000</span>
-              <div class="item-quantity">
-                <label for="susp_coilovers_qty">Qty:</label>
-                <input type="number" id="susp_coilovers_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="susp_springs" class="itemChk" data-price="5000">
-                <label for="susp_springs">Lowering Springs Installation</label>
-              </div>
-              <span class="price-display">R5,000</span>
-              <div class="item-quantity">
-                <label for="susp_springs_qty">Qty:</label>
-                <input type="number" id="susp_springs_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-          </div>
-
-          <div class="service-category">
-            <h2>Exhaust & Body</h2>
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="exh_full" class="itemChk" data-price="8000">
-                <label for="exh_full">Custom Full Exhaust System</label>
-              </div>
-              <span class="price-display">R8,000</span>
-              <div class="item-quantity">
-                <label for="exh_full_qty">Qty:</label>
-                <input type="number" id="exh_full_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-            
-            <div class="item-row">
-              <div class="item-details">
-                <input type="checkbox" id="body_kit" class="itemChk" data-price="7500">
-                <label for="body_kit">Body Kit Installation (Excl. Paint)</label>
-              </div>
-              <span class="price-display">R7,500</span>
-              <div class="item-quantity">
-                <label for="body_kit_qty">Qty:</label>
-                <input type="number" id="body_kit_qty" class="qty" value="1" min="1" disabled>
-              </div>
-            </div>
-          </div>
+      <!-- 1. ECU & TCU TUNING SECTION -->
+      <div class="service-category">
+        <h2>ECU & TCU Tuning</h2>
         
-        </form>
-      </section>
-
-      <aside>
-        <h2>Quote Summary</h2>
-        <form>
-          <div class="summary-actions">
-            <p id="totalLabel">Calculated Total:</p>
-            <span id="totalAmt">R0</span>
-            
-            <button class="btn primary" type="button" id="proceedToCheckoutBtn" disabled>
-                Proceed to Checkout
-            </button>
+        <!-- Item: Stage 1 ECU Remap -->
+        <div class="item-row" data-id="ecu-stage1" data-price="4500" data-name="Stage 1 ECU Remap">
+            <div class="item-details">
+                <input type="checkbox" id="check-ecu1" class="itemChk">
+                <label for="check-ecu1">Stage 1 ECU Remap</label>
             </div>
-        </form>
-      </aside>
+            <span class="item-price">R4,500</span>
+            <div class="quantity-control">
+                <label for="qty-ecu1">Qty:</label>
+                <input type="number" id="qty-ecu1" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
 
-    </main>
+        <!-- Item: Custom Dyno Tuning -->
+        <div class="item-row" data-id="dyno-tune" data-price="6500" data-name="Custom Dyno Tuning">
+            <div class="item-details">
+                <input type="checkbox" id="check-dyno" class="itemChk">
+                <label for="check-dyno">Custom Dyno Tuning</label>
+            </div>
+            <span class="item-price">R6,500</span>
+            <div class="quantity-control">
+                <label for="qty-dyno">Qty:</label>
+                <input type="number" id="qty-dyno" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
 
-    <footer>© 2025 FRC Tuned — All rights reserved.</footer>
-  </div>
+        <!-- Item: TCU (Transmission) Remap -->
+        <div class="item-row" data-id="tcu-remap" data-price="3500" data-name="TCU (Transmission) Remap">
+            <div class="item-details">
+                <input type="checkbox" id="check-tcu" class="itemChk">
+                <label for="check-tcu">TCU (Transmission) Remap</label>
+            </div>
+            <span class="item-price">R3,500</span>
+            <div class="quantity-control">
+                <label for="qty-tcu">Qty:</label>
+                <input type="number" id="qty-tcu" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
+      </div>
+
+      <!-- 2. SUSPENSION UPGRADES SECTION -->
+      <div class="service-category">
+        <h2>Suspension Upgrades</h2>
+        
+        <!-- Item: Coilover Installation -->
+        <div class="item-row" data-id="coilover-install" data-price="12000" data-name="Coilover Installation (Parts not included)">
+            <div class="item-details">
+                <input type="checkbox" id="check-coil" class="itemChk">
+                <label for="check-coil">Coilover Installation (Parts not included)</label>
+            </div>
+            <span class="item-price">R12,000</span>
+            <div class="quantity-control">
+                <label for="qty-coil">Qty:</label>
+                <input type="number" id="qty-coil" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
+
+        <!-- Item: Lowering Springs Installation -->
+        <div class="item-row" data-id="springs-install" data-price="5000" data-name="Lowering Springs Installation">
+            <div class="item-details">
+                <input type="checkbox" id="check-springs" class="itemChk">
+                <label for="check-springs">Lowering Springs Installation</label>
+            </div>
+            <span class="item-price">R5,000</span>
+            <div class="quantity-control">
+                <label for="qty-springs">Qty:</label>
+                <input type="number" id="qty-springs" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
+      </div>
+
+      <!-- 3. EXHAUST & BODY SECTION -->
+      <div class="service-category">
+        <h2>Exhaust & Body</h2>
+        
+        <!-- Item: Custom Full Exhaust System -->
+        <div class="item-row" data-id="full-exhaust" data-price="8000" data-name="Custom Full Exhaust System">
+            <div class="item-details">
+                <input type="checkbox" id="check-exhaust" class="itemChk">
+                <label for="check-exhaust">Custom Full Exhaust System</label>
+            </div>
+            <span class="item-price">R8,000</span>
+            <div class="quantity-control">
+                <label for="qty-exhaust">Qty:</label>
+                <input type="number" id="qty-exhaust" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
+
+        <!-- Item: Body Kit Installation -->
+        <div class="item-row" data-id="bodykit-install" data-price="5000" data-name="Body Kit Installation (Excl. Paint)">
+            <div class="item-details">
+                <input type="checkbox" id="check-bodykit" class="itemChk">
+                <label for="check-bodykit">Body Kit Installation (Excl. Paint)</label>
+            </div>
+            <span class="item-price">R5,000</span>
+            <div class="quantity-control">
+                <label for="qty-bodykit">Qty:</label>
+                <input type="number" id="qty-bodykit" class="qty" value="1" min="1" disabled>
+            </div>
+        </div>
+      </div>
+
+      <!-- QUOTE SUMMARY -->
+      <div class="summary-card">
+        <h2>Quote Summary</h2>
+        <p id="subtotal-section">
+          <span>Subtotal:</span>
+          <span id="subtotal">R0.00</span>
+        </p>
+        <p id="total-section">
+          <span>Total Estimate:</span>
+          <span id="total">R0.00</span>
+        </p>
+        <!-- The button stores the selected items data for the next page -->
+        <button type="button" id="proceed-to-checkout" disabled>
+          Proceed to Checkout
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer for FRC -->
+  <footer>
+    <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
+  </footer>
 
   <script>
-    const form = document.getElementById('quoteForm');
-    // Removed const calcBtn = document.getElementById('calcBtn');
-    const totalAmt = document.getElementById('totalAmt');
-    const proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
-
-    // Format number as South African Rand (R)
-    function formatZAR(n){
-      return 'R' + n.toLocaleString('en-ZA', {minimumFractionDigits:0, maximumFractionDigits:0});
+    // Utility function to format ZAR currency
+    function formatZAR(amount) {
+      return new Intl.NumberFormat('en-ZA', {
+        style: 'currency',
+        currency: 'ZAR',
+        minimumFractionDigits: 2,
+      }).format(amount).replace('ZAR', 'R'); // Replace ZAR with R symbol for display
     }
 
-    // Recalculate total and prepare data for checkout
-    function recalc(){
-      let total = 0;
-      const selectedItems = []; // List to store items for checkout
+    const form = document.getElementById('quote-form');
+    const itemRows = document.querySelectorAll('.item-row');
+    const subtotalDisplay = document.getElementById('subtotal');
+    const totalDisplay = document.getElementById('total');
+    const proceedToCheckoutBtn = document.getElementById('proceed-to-checkout');
 
-      form.querySelectorAll('.item-row').forEach(row => {
-        const chk = row.querySelector('.itemChk');
-        const qty = row.querySelector('.qty');
-        const titleElement = row.querySelector('label'); 
+    /**
+     * Recalculates the total cost and updates the summary display.
+     */
+    function recalc() {
+      let subtotal = 0;
+      let selectedItems = [];
+
+      itemRows.forEach(row => {
+        const checkbox = row.querySelector('.itemChk');
+        const qtyInput = row.querySelector('.qty');
         
-        if(chk.checked){
-          const pricePerUnit = Number(chk.dataset.price);
-          // Use quantity input value, defaulting to 1 if empty or invalid
-          const quantity = Number(qty.value) || 1; 
-          const title = titleElement ? titleElement.textContent.trim() : 'Service Item';
-
-          const itemTotalFee = pricePerUnit * quantity;
-          total += itemTotalFee;
+        // Ensure quantity is at least 1 if checked, or 0 if unchecked/disabled
+        const qty = checkbox.checked && !qtyInput.disabled ? Math.max(1, parseInt(qtyInput.value) || 0) : 0;
+        
+        // If checked, update the total and record the item
+        if (checkbox.checked && qty > 0) {
+          const price = parseFloat(row.dataset.price);
+          const itemId = row.dataset.id;
+          const itemName = row.dataset.name;
           
-          // Add item to the list for checkout
+          subtotal += price * qty;
+          
           selectedItems.push({
-            id: chk.id,
-            // Include quantity in title for clarity on checkout page
-            title: `${title} (x${quantity})`, 
-            fee: itemTotalFee, // Send the total fee for this item
-            duration: 'Installation', // Placeholder for duration
+            id: itemId,
+            name: itemName,
+            price: price,
+            qty: qty,
+            total: price * qty
           });
         }
       });
 
-      totalAmt.textContent = formatZAR(total);
-
-      // Enable/disable the Checkout button and store the data
-      if (total > 0) {
+      // Update displays
+      subtotalDisplay.textContent = formatZAR(subtotal);
+      totalDisplay.textContent = formatZAR(subtotal); // No tax/discount applied for simplicity
+      
+      // Enable or disable checkout button based on selections
+      if (selectedItems.length > 0) {
         proceedToCheckoutBtn.disabled = false;
-        // Store the JSON data on the button for easy access during the click event
+        // Store selected items as a JSON string in a data attribute
         proceedToCheckoutBtn.dataset.items = JSON.stringify(selectedItems);
       } else {
         proceedToCheckoutBtn.disabled = true;
@@ -451,7 +486,8 @@
             const encodedData = encodeURIComponent(selectedItemsJson);
             window.location.href = `checkout.html?selected=${encodedData}`;
         } else {
-            alert("Please select services before proceeding to checkout.");
+            // Using a simple alert, as custom modals are complex for this single-file setup
+            console.error("Please select services before proceeding to checkout.");
         }
     });
 
@@ -460,8 +496,12 @@
       if(e.target.classList.contains('itemChk')){
         const qtyInput = e.target.closest('.item-row').querySelector('.qty');
         qtyInput.disabled = !e.target.checked;
+        // Reset quantity to 1 if enabling
         if(e.target.checked) {
+            qtyInput.value = 1;
             qtyInput.focus();
+        } else {
+            qtyInput.value = 0; // Set to 0 when unchecking
         }
         recalc(); // Recalculate immediately after checkbox change
       }
@@ -475,7 +515,7 @@
     });
 
     // Run initial calculation when the page loads
-    recalc();
+    recalc(); 
   </script>
 </body>
 </html>
