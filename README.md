@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-=======
-## Part 1
+
+## FRC TUNED website wede 5020 
 ST10473316
 FRC Tuned Website
 Project Summary
@@ -8,6 +7,7 @@ The FRC Tuned Website is a multi-page site that adjusts to different devices, de
 The platform highlights the company's offerings, includes a gallery, provides pricing information, and displays contact details, all while ensuring that visitors enjoy an easy-to-use experience.
 Crafted using HTML and CSS, the site features interactive components like a pricing calculator for services.
 
+## changelog Part 1
 Pages
 Home (index. html)
 Main section displaying the company’s slogan
