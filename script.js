@@ -1,4 +1,5 @@
-// --- Global Utility Function ---
+// =================================================================
+// --- 1. Global Utility Function ---
 // Helper function to format currency as ZAR (South African Rand)
 const formatZAR = (amount) => {
     return new Intl.NumberFormat('en-ZA', {
@@ -8,7 +9,9 @@ const formatZAR = (amount) => {
     }).format(amount);
 };
 
-// ---Smooth Scrolling Logic (Independent of DOMContentLoaded) ---
+
+// =================================================================
+// --- 2. Smooth Scrolling Logic (Independent of DOMContentLoaded) ---
 const navLinks = document.querySelectorAll('nav a');
 
 navLinks.forEach((link) => {
@@ -25,24 +28,27 @@ navLinks.forEach((link) => {
     });
 });
 
-// --- DOMContentLoaded for all Page-Specific Logic ---
+
+// =================================================================
+// --- 3. DOMContentLoaded for all Page-Specific Logic ---
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---Scroll Reveal Animation Logic ---
+    // --- 3.1 Scroll Reveal Animation Logic ---
     const revealElements = document.querySelectorAll('.reveal');
 
     if (revealElements.length > 0) {
         const observerOptions = {
-            root: null, // relative to the viewport
+            root: null, 
             rootMargin: '0px',
-            threshold: 0.1 // 10% of the item must be visible to trigger
+            threshold: 0.1 
         };
 
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
+                const targetElement = entry.target;
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    targetElement.classList.add('active');
+                    observer.unobserve(targetElement);
                 }
             });
         };
@@ -54,37 +60,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ---Search Filter Logic (Applies primarily to quote.html and services.html) ---
+    // --- 3.2 Search Filter Logic (Applies primarily to quote.html and services.html) ---
     const searchInput = document.getElementById('search');
 
     if (searchInput) {
         searchInput.addEventListener('keyup', () => {
             const query = searchInput.value.toLowerCase();
 
-            // Loop through all service categories/sections
-            document.querySelectorAll('.service-category').forEach(category => {
+            document.querySelectorAll('.service-category').forEach((category) => {
                 let hasVisibleItem = false;
+                const categoryElement = category;
 
-                // Loop through each item in the category (assumes items have class .item-row)
-                category.querySelectorAll('.item-row').forEach(row => {
-                    // Uses the data-name attribute for searching
-                    const itemName = row.dataset.name.toLowerCase();
+                category.querySelectorAll('.item-row').forEach((row) => {
+                    const rowElement = row;
+                    // Use dataset access, with fallback for safety
+                    const itemName = (rowElement.dataset.name || '').toLowerCase(); 
                     if (itemName.includes(query)) {
-                        row.style.display = ''; // show matching item
+                        rowElement.style.display = ''; 
                         hasVisibleItem = true;
                     } else {
-                        row.style.display = 'none'; // hide non-matching item
+                        rowElement.style.display = 'none'; 
                     }
                 });
 
-                // Hide the entire category if it has no visible items
-                category.style.display = hasVisibleItem ? '' : 'none';
+                categoryElement.style.display = hasVisibleItem ? '' : 'none';
             });
         });
     }
 
 
-    // ---Quote Calculator and Checkout Logic ---
+    // --- 3.3 Quote Calculator and Checkout Logic (Applies primarily to quote.html) ---
     const quoteForm = document.getElementById('quoteForm');
 
     if (quoteForm) {
@@ -99,20 +104,20 @@ document.addEventListener('DOMContentLoaded', () => {
             let subTotal = 0;
             const selectedItems = [];
 
-            // Iterate over all item rows in the form
-            document.querySelectorAll('.item-row').forEach(row => {
-                const checkbox = row.querySelector('.itemChk');
-                const qtyInput = row.querySelector('.qty');
+            document.querySelectorAll('.item-row').forEach((row) => {
+                const rowElement = row;
+                const checkbox = rowElement.querySelector('.itemChk');
+                const qtyInput = rowElement.querySelector('.qty');
 
-                if (checkbox && checkbox.checked) {
-                    const itemPrice = parseFloat(row.dataset.price);
-                    const itemName = row.dataset.name;
-                    const quantity = parseInt(qtyInput.value) || 0;
+                if (checkbox && checkbox.checked && qtyInput) {
+                    // Use Number() for robust conversion from string, with fallback
+                    const itemPrice = Number(rowElement.dataset.price) || 0; 
+                    const itemName = rowElement.dataset.name || 'Unknown Item';
+                    const quantity = Number(qtyInput.value) || 0;
 
                     const itemTotal = itemPrice * quantity;
                     subTotal += itemTotal;
 
-                    // Store selected item details for checkout
                     if (quantity > 0) {
                         selectedItems.push({
                             name: itemName,
@@ -127,15 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const vat = subTotal * VAT_RATE;
             const total = subTotal + vat;
 
-            // Update the summary section
             subTotalSpan.textContent = formatZAR(subTotal);
             vatSpan.textContent = formatZAR(vat);
             totalSpan.textContent = formatZAR(total);
 
-            // Enable/Disable checkout button based on items selected
             checkoutBtn.disabled = selectedItems.length === 0;
 
-            // Save selected items and totals to localStorage for the checkout page
+            // Save object to localStorage
             localStorage.setItem('quoteItems', JSON.stringify(selectedItems));
             localStorage.setItem('quoteTotal', JSON.stringify({ subTotal, vat, total }));
         };
@@ -148,57 +151,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const storedItems = localStorage.getItem('quoteItems');
             if (storedItems && JSON.parse(storedItems).length > 0) {
-                // Navigate to checkout.html if items are selected
                 window.location.href = 'checkout.html';
             } else {
                 alert('Please select at least one item to proceed to checkout.');
             }
         });
 
-        //  Change events (Checkbox and Quantity)
-        quoteForm.addEventListener('change', e => {
-            if (e.target.classList.contains('itemChk')) {
-                const qtyInput = e.target.closest('.item-row').querySelector('.qty');
-                
-                // Toggle quantity input's disabled state
-                qtyInput.disabled = !e.target.checked;
-                
-                // Set quantity to 1 if checked, 0 if unchecked
-                qtyInput.value = e.target.checked ? 1 : 0;
+        // Change events (Checkbox and Quantity)
+        quoteForm.addEventListener('change', (e) => {
+            const target = e.target;
+
+            if (target && target.classList.contains('itemChk')) {
+                const itemRow = target.closest('.item-row');
+                const qtyInput = itemRow.querySelector('.qty');
+
+                qtyInput.disabled = !target.checked;
+                // Value must be set as a string
+                qtyInput.value = target.checked ? '1' : '0'; 
                 
                 recalc();
             }
         });
 
-        //  Input events (Quantity)
-        quoteForm.addEventListener('input', e => {
-            if (e.target.classList.contains('qty')) {
-                // Ensure quantity is not negative
-                if (parseInt(e.target.value) < 0 || e.target.value === '') {
-                    e.target.value = 0;
+        // Input events (Quantity)
+        quoteForm.addEventListener('input', (e) => {
+            const target = e.target;
+
+            if (target && target.classList.contains('qty')) {
+                // Read as number
+                let currentValue = Number(target.value); 
+                
+                if (currentValue < 0 || target.value === '') {
+                    target.value = '0';
+                    currentValue = 0;
                 }
                 
-                const checkbox = e.target.closest('.item-row').querySelector('.itemChk');
+                const itemRow = target.closest('.item-row');
+                const checkbox = itemRow.querySelector('.itemChk');
                 
-                if (parseInt(e.target.value) > 0) {
-                    // If user enters a quantity > 0, check the box and enable the input
+                if (currentValue > 0) {
                     checkbox.checked = true;
-                    e.target.disabled = false;
+                    target.disabled = false;
                 } else {
-                    // If user clears quantity or sets it to 0, uncheck the box and disable the input
                     checkbox.checked = false;
-                    e.target.disabled = true;
+                    target.disabled = true;
                 }
                 recalc();
             }
         });
 
-        // Initial calculation on quote page load
         recalc();
     } // End of quoteForm logic
 
 
-    // Checkout Page Logic (Applies primarily to checkout.html) 
+    // --- 3.4 Checkout Page Logic (Applies primarily to checkout.html) ---
     const checkoutSummaryTableBody = document.getElementById('checkoutSummaryBody');
 
     if (checkoutSummaryTableBody) {
@@ -211,16 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedItems = JSON.parse(itemsJson);
                 const totals = JSON.parse(totalJson);
 
-                checkoutSummaryTableBody.innerHTML = ''; // Clear existing rows
+                checkoutSummaryTableBody.innerHTML = ''; 
 
                 if (selectedItems.length === 0) {
                     checkoutSummaryTableBody.innerHTML = '<tr><td colspan="4">No items were added to the quote.</td></tr>';
                     return;
                 }
 
-                // Populate the table with selected items
-                selectedItems.forEach(item => {
-                    const row = checkoutSummaryTableBody.insertRow();
+                selectedItems.forEach((item) => {
+                    const row = checkoutSummaryTableBody.insertRow(); 
                     row.innerHTML = `
                         <td>${item.name}</td>
                         <td class="text-end">${formatZAR(item.price)}</td>
@@ -229,17 +234,55 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 });
 
-                // Update the totals in the summary section of the checkout page
-                document.getElementById('checkoutSubTotal').textContent = formatZAR(totals.subTotal);
-                document.getElementById('checkoutVAT').textContent = formatZAR(totals.vat);
-                document.getElementById('checkoutTotal').textContent = formatZAR(totals.total);
+                // Retrieve elements for display updates
+                const subTotalElem = document.getElementById('checkoutSubTotal');
+                const vatElem = document.getElementById('checkoutVAT');
+                const totalElem = document.getElementById('checkoutTotal');
+
+                if (subTotalElem) subTotalElem.textContent = formatZAR(totals.subTotal);
+                if (vatElem) vatElem.textContent = formatZAR(totals.vat);
+                if (totalElem) totalElem.textContent = formatZAR(totals.total);
             } else {
                  checkoutSummaryTableBody.innerHTML = '<tr><td colspan="4">Could not load quote data. Please return to the quote page.</td></tr>';
             }
         };
 
-        // Load items when the checkout page is ready
         loadCheckoutItems();
     } // End of checkoutSummaryTableBody logic
 
-}); 
+
+    // --- 3.5 Gallery Lightbox Logic (Applies primarily to gallery.html) ---
+
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    if (galleryImages.length > 0 && lightbox && lightboxImg && lightboxCaption && closeBtn) {
+        galleryImages.forEach((image) => {
+            image.addEventListener('click', () => {
+                lightbox.style.display = "block";
+                lightboxImg.src = image.src;
+                lightboxCaption.textContent = image.alt;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = "none";
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && lightbox.style.display === "block") {
+                lightbox.style.display = "none";
+            }
+        });
+    }
+
+}); // End of DOMContentLoaded
