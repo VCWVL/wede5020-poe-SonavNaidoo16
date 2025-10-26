@@ -242,3 +242,6 @@ W3Schools. (2024). HTML Tutorial. Available at: https://www.w3schools.com/html/ 
 Mozilla Developer Network (MDN). (2024). CSS Basics. Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS (Accessed: 24 October 2025).
 
 YouTube 2025. GOQK6rE63VU – embedded video [Online]. Available at: https://www.youtube.com/embed/GOQK6rE63VU (Accessed: 24 October 2025).
+
+ChatGPT (2025) Shared conversation: SEO implementation for HTML websites. Available at: https://chatgpt.com/share/68fe0577-a058-800d-b9fd-60df085d201f (Accessed: 26 October 2025).
+<img width="1552" height="930" alt="image" src="https://github.com/user-attachments/assets/819c32db-8f33-4022-9d8f-f4bad4d2a7ac" />
