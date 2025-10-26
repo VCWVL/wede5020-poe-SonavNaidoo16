@@ -29,6 +29,33 @@
       padding-bottom: 10px;
       margin-bottom: 15px;
     }
+    .search-container {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .search-container input {
+        width: 100%;
+        max-width: 500px;
+        padding: 10px 15px;
+        border: 2px solid rgb(255, 111, 0);
+        border-radius: 5px;
+        background: #1a1a1a;
+        color: white;
+        font-size: 1rem;
+    }
+    .search-container input::placeholder {
+        color: #999;
+    }
+    .cta-section {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid #333;
+        margin-top: 40px;
+    }
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
     
     @media (max-width: 768px) {
       .services {
@@ -38,7 +65,6 @@
   </style>
 </head>
 <body>
-  <!-- Logo and navigation -->
   <header class="sticky">
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
@@ -50,12 +76,14 @@
     </nav>
   </header>
 
-  <!-- Main content area -->
   <main class="services">
     <h1>Our Services</h1>
+    
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for a service, e.g., 'ECU Remapping'">
+    </div>
 
-    <!-- ECU Remapping - Added 'reveal' class -->
-    <section class="service-card reveal" id="ecu">
+    <section class="service-card reveal" id="ecu" data-name="ECU Remapping">
       <h2>ECU Remapping</h2>
       <p>
         Software modifications that remap an automobile's electronic control unit (ECU) improve the engine.  
@@ -64,8 +92,7 @@
       </p>
     </section>
 
-    <!-- Suspension Upgrades - Added 'reveal' and 'reveal-delay-1' class -->
-    <section class="service-card reveal reveal-delay-1" id="suspension">
+    <section class="service-card reveal reveal-delay-1" id="suspension" data-name="Suspension Upgrades">
       <h2>Suspension Upgrades</h2>
       <p>
         Upgrading or improving components makes suspension more responsive, stable, and comfortable.  
@@ -74,8 +101,7 @@
       </p>
     </section>
 
-    <!-- Exhaust Systems - Added 'reveal' and 'reveal-delay-2' class -->
-    <section class="service-card reveal reveal-delay-2" id="exhaust">
+    <section class="service-card reveal reveal-delay-2" id="exhaust" data-name="Exhaust Systems">
       <h2>Exhaust Systems</h2>
       <p>
         Performance exhausts let gases exit more efficiently, boosting power and throttle response.  
@@ -83,22 +109,24 @@
       </p>
     </section>
 
-    <!-- Body Kits - Added 'reveal' and 'reveal-delay-3' class -->
-    <section class="service-card reveal reveal-delay-3" id="bodykits">
+    <section class="service-card reveal reveal-delay-3" id="bodykits" data-name="Body Kits">
       <h2>Body Kits</h2>
       <p>
         Kits include bumpers, side skirts, spoilers, and diffusers to enhance looks and aerodynamics.  
         High-quality materials like fibreglass, polyurethane, or carbon fibre ensure strength and durability.
       </p>
     </section>
+    
+    <section class="cta-section reveal">
+        <p>Ready to unlock your vehicle's full potential?</p>
+        <a href="quote.html" class="btn orange">Get an Instant Quote</a>
+    </section>
   </main>
 
-  <!-- Footer for FRC -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
-  <!-- Link to the JavaScript file for animations -->
   <script src="script.js"></script>
 </body>
 </html>

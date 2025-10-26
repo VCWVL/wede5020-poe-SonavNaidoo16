@@ -288,7 +288,7 @@
 
         // --- Core Logic ---
 
-        // 1. Get data from URL and populate the selectedItems array
+        //  Get data from URL and populate the selectedItems array
         function loadItems() {
             const encodedData = getQueryParam('selected');
             if (encodedData) {
@@ -314,7 +314,7 @@
             return false;
         }
 
-        // 2. Update the visual summary
+        //  Update the visual summary
         function updateSummary() {
             summaryDetails.innerHTML = '';
             
@@ -343,7 +343,7 @@
             paymentTotalAmountSpan.textContent = formatZAR(total);
         }
 
-        // 3. Switch between summary and payment forms
+        // Switch between summary and payment forms
         function switchView() {
             if (showPayment) {
                 summaryView.classList.add('hidden');
@@ -358,24 +358,24 @@
 
         // --- Event Handlers ---
 
-        // 1. Back to Quote button click (NEW)
+        // Back to Quote button click (NEW)
         backToQuoteBtn.addEventListener('click', () => {
             window.location.href = 'quote.html';
         });
 
-        // 2. Proceed to Payment button click
+        // Proceed to Payment button click
         proceedToPaymentBtn.addEventListener('click', () => {
             showPayment = true;
             switchView();
         });
 
-        // 3. Back to Checkout button click
+        // Back to Checkout button click
         backToCheckoutBtn.addEventListener('click', () => {
             showPayment = false;
             switchView();
         });
 
-        // 4. Payment Form Submission handler
+        // Payment Form Submission handler
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
@@ -399,5 +399,7 @@
             switchView(); 
         }
     </script>
+    <!-- Link to the JavaScript file for animations -->
+  <script src="script.js"></script>
 </body>
 </html>
