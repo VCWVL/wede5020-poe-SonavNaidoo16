@@ -1,5 +1,4 @@
-// =================================================================
-// --- 1. Global Utility Function ---
+// --- Global Utility Function ---
 // Helper function to format currency as ZAR (South African Rand)
 const formatZAR = (amount) => {
     return new Intl.NumberFormat('en-ZA', {
@@ -9,9 +8,7 @@ const formatZAR = (amount) => {
     }).format(amount);
 };
 
-
-// =================================================================
-// --- 2. Smooth Scrolling Logic (Independent of DOMContentLoaded) ---
+// ---Smooth Scrolling Logic (Independent of DOMContentLoaded) ---
 const navLinks = document.querySelectorAll('nav a');
 
 navLinks.forEach((link) => {
@@ -29,11 +26,10 @@ navLinks.forEach((link) => {
 });
 
 
-// =================================================================
-// --- 3. DOMContentLoaded for all Page-Specific Logic ---
+// ---DOMContentLoaded for all Page-Specific Logic ---
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 3.1 Scroll Reveal Animation Logic ---
+    // ---Scroll Reveal Animation Logic ---
     const revealElements = document.querySelectorAll('.reveal');
 
     if (revealElements.length > 0) {
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 3.2 Search Filter Logic (Applies primarily to quote.html and services.html) ---
+    // ---Search Filter Logic (Applies primarily to quote.html and services.html) ---
     const searchInput = document.getElementById('search');
 
     if (searchInput) {
@@ -89,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 3.3 Quote Calculator and Checkout Logic (Applies primarily to quote.html) ---
+    // ---Quote Calculator and Checkout Logic (Applies primarily to quote.html) ---
     const quoteForm = document.getElementById('quoteForm');
 
     if (quoteForm) {
@@ -138,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             checkoutBtn.disabled = selectedItems.length === 0;
 
-            // Save object to localStorage
+            // Save object to localStorage for checkout.html
             localStorage.setItem('quoteItems', JSON.stringify(selectedItems));
             localStorage.setItem('quoteTotal', JSON.stringify({ subTotal, vat, total }));
         };
@@ -204,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } // End of quoteForm logic
 
 
-    // --- 3.4 Checkout Page Logic (Applies primarily to checkout.html) ---
+    // ---Checkout Page Logic (Applies primarily to checkout.html) ---
     const checkoutSummaryTableBody = document.getElementById('checkoutSummaryBody');
 
     if (checkoutSummaryTableBody) {
@@ -251,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } // End of checkoutSummaryTableBody logic
 
 
-    // --- 3.5 Gallery Lightbox Logic (Applies primarily to gallery.html) ---
+    // ---Gallery Lightbox Logic (Applies primarily to gallery.html) ---
 
     const galleryImages = document.querySelectorAll('.gallery-image');
     const lightbox = document.getElementById('lightbox');
