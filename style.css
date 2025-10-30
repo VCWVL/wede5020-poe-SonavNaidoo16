@@ -371,3 +371,129 @@ footer {
     margin: 10px;
   }
 }
+
+/* ========================================================= */
+/* --- ENQUIRY FORM STYLES (Merged from form.css) --- */
+/* ========================================================= */
+
+/* Styling for the overall form container and section */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.enquiry-section {
+    background-color: #181818; /* Used existing header/card background for consistency */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+    margin: 40px auto; /* Center the entire section */
+    max-width: 700px; /* Constrain width for better reading flow on desktop */
+}
+
+.enquiry-section h1 {
+    color: rgb(255, 111, 0); /* Primary Orange Accent (Uses existing h1 style) */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.enquiry-section p {
+    color: #b3b3b3; /* Light grey for body text */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* --- Form Element Styling --- */
+
+.styled-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative; 
+}
+
+/* Label Styling */
+.form-group label {
+    display: block;
+    color: #f0f0f0; /* White/Off-white for clarity */
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+}
+
+/* Input, Textarea, and Select Field Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #333; /* Dark border */
+    border-radius: 8px;
+    background-color: #0d0d0d; /* Very dark background for fields */
+    color: #f0f0f0;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; 
+}
+
+/* Focus State - The Orange Glow Effect */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgb(255, 111, 0); /* Orange border on focus */
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Soft orange glow */
+    outline: none; /* Remove default browser outline */
+}
+
+/* Placeholder text color */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666; /* Subtler text */
+}
+
+/* Select element specific styling for better appearance */
+.form-group select {
+    /* Custom arrow using SVG, colored in FRC orange */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%2D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4l-14.7-14.7a10%2010%200%200%200-14.1%200L146.2%20188.4%2034.2%2054.7a10%2010%200%200%200-14.1%200L5%2069.4a10%2010%200%200%200%200%2014.1l134.4%20134.4a10%2010%200%200%200%2014.1%200L287%2083.5a10%2010%200%200%200%200-14.1z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Textarea specific adjustments */
+.form-group textarea {
+    resize: vertical; 
+}
+
+/* Button Styling is already handled by the existing .btn and primary-btn styles! */
+
+/* Form Response Area */
+.form-response {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    color: #f0f0f0;
+    min-height: 50px; /* Give it some vertical space */
+}
+
+/* Media Query for responsiveness, ensuring section is full width on mobile */
+@media (max-width: 768px) {
+    .enquiry-section {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+}
