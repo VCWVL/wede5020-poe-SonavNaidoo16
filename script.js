@@ -1,21 +1,4 @@
-// --- Firebase Imports ---
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { 
-    getAuth, 
-    signInAnonymously, 
-    signInWithCustomToken, 
-    onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { 
-    getFirestore, 
-    collection, 
-    addDoc, 
-    setLogLevel 
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-
-// --- Global Utility Functions ---
-
+// --- Global Utility Function ---
 // Helper function to format currency as ZAR (South African Rand)
 const formatZAR = (amount) => {
     return new Intl.NumberFormat('en-ZA', {
@@ -24,27 +7,6 @@ const formatZAR = (amount) => {
         minimumFractionDigits: 2
     }).format(amount);
 };
-
-// Function to show custom message instead of alert()
-const displayMessage = (message, isError = true) => {
-    // This targets a global response area, useful for forms (like on enquirey.html or quote.html)
-    const responseDiv = document.getElementById('response') || document.getElementById('checkoutMessage'); 
-    
-    if (responseDiv) {
-        responseDiv.textContent = message;
-        // Determine classes for styling (you'll need 'form-response error' and 'form-response success' CSS)
-        responseDiv.className = isError 
-            ? 'form-response error' 
-            : 'form-response success';
-        responseDiv.style.display = 'block';
-        
-        // Hide message after 5 seconds
-        setTimeout(() => responseDiv.style.display = 'none', 5000); 
-    } else {
-        console.warn('No message element found (#response or #checkoutMessage) to display:', message);
-    }
-};
-
 
 // ---Smooth Scrolling Logic (Independent of DOMContentLoaded) ---
 const navLinks = document.querySelectorAll('nav a');
@@ -66,49 +28,6 @@ navLinks.forEach((link) => {
 
 // ---DOMContentLoaded for all Page-Specific Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- Firebase Setup and Authentication ---
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
-
-    let db;
-    let auth;
-    let userId = 'loading'; // Temporary state until auth is ready
-
-    if (firebaseConfig) {
-        try {
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-
-            // Authentication logic
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    userId = user.uid;
-                } else {
-                    // Sign in anonymously if no token is available, or use the initial token
-                    try {
-                         if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                            await signInWithCustomToken(auth, __initial_auth_token);
-                        } else {
-                            await signInAnonymously(auth);
-                        }
-                    } catch (error) {
-                        console.error("Authentication failed:", error);
-                        // Fallback to a random ID if anonymous sign-in fails
-                        userId = crypto.randomUUID(); 
-                    }
-                    userId = auth.currentUser?.uid || crypto.randomUUID(); // Set final userId
-                }
-                console.log(`Firebase ready. User ID: ${userId}`);
-            });
-            setLogLevel('Debug'); // Enable debug logging for Firestore
-        } catch (error) {
-            console.error("Firebase Initialization Error:", error);
-        }
-    } else {
-        console.warn("Firebase config not available. Database operations are disabled.");
-    }
 
     // ---Scroll Reveal Animation Logic ---
     const revealElements = document.querySelectorAll('.reveal');
@@ -230,8 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (storedItems && JSON.parse(storedItems).length > 0) {
                 window.location.href = 'checkout.html';
             } else {
-                // Use custom message function instead of alert()
-                displayMessage('Please select at least one item to proceed to checkout.', true); 
+                alert('Please select at least one item to proceed to checkout.');
             }
         });
 
@@ -282,53 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } // End of quoteForm logic
 
 
-    // --- Enquiry Form Submission Logic (using Firestore) ---
-    const enquiryForm = document.getElementById('enquiryForm');
-
-    if (enquiryForm && db) { // Ensure form and DB are available
-        enquiryForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formResponse = document.getElementById('response');
-            
-            if (!userId || userId === 'loading') {
-                console.error("User ID is not defined. Authentication is still in progress.");
-                displayMessage("Error: Authentication not complete. Please wait a moment and try again.", true, formResponse);
-                return;
-            }
-
-            const formData = new FormData(enquiryForm);
-            const enquiryData = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                type: formData.get('type'),
-                message: formData.get('message'),
-                timestamp: new Date(),
-                userId: userId,
-                status: 'New'
-            };
-
-            // Use the private collection path structure
-            const collectionPath = `/artifacts/${appId}/users/${userId}/enquiries`;
-
-            try {
-                await addDoc(collection(db, collectionPath), enquiryData);
-                enquiryForm.reset();
-                displayMessage("Success! Your enquiry has been sent. We'll be in touch shortly.", false, formResponse);
-            } catch (error) {
-                console.error("Error adding document: ", error);
-                displayMessage("Error submitting enquiry. Please check your network connection.", true, formResponse);
-            }
-        });
-    }
-
-
     // ---Checkout Page Logic (Applies primarily to checkout.html) ---
     const checkoutSummaryTableBody = document.getElementById('checkoutSummaryBody');
 
     if (checkoutSummaryTableBody) {
         
-        // This function replaces the original loadCheckoutItems and is renamed for clarity
-        const updateSummary = () => {
+        const loadCheckoutItems = () => {
             const itemsJson = localStorage.getItem('quoteItems');
             const totalJson = localStorage.getItem('quoteTotal');
             
@@ -366,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        updateSummary();
+        loadCheckoutItems();
     } // End of checkoutSummaryTableBody logic
 
 
