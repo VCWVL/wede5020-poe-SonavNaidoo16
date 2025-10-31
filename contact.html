@@ -1,144 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact FRC Tuned | Get in Touch for Tuning & Quotes</title>
   <meta name="description" content="Contact FRC Tuned in Durban, South Africa, for inquiries, quotes, and expert advice on ECU tuning, suspension, and other performance upgrades.">
   <link rel="stylesheet" href="style.css">
-  <!-- Added Font Awesome for the Instagram Icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-    /* Global styles */
-    body {
-      background-color: #0d0d0d; /* Dark background for a sleek look */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #f5f5f5; /* Light text for contrast */
-      line-height: 1.6;
-    }
-
-    /* Header styles */
-    header {
-      display: flex; /* Align logo and nav horizontally */
-      justify-content: space-between; /* Space between logo and navigation */
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #111; /* Slightly darker header */
-    }
-
-    /* Logo styling */
-    .logo span {
-      color: #f97316; /* Highlight the "Tuned" part of the logo */
-      font-weight: bold;
-    }
-
-    /* Main content container */
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    /* Card styling for sections */
-    .card {
-      background: #1a1a1a;
-      border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .card h2 {
-      color: rgb(255, 111, 0);
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* Form specific styles */
-    form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #333;
-      border-radius: 5px;
-      background-color: #222;
-      color: #f5f5f5;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-      transition: border-color 0.3s;
-    }
-
-    form input:focus,
-    form textarea:focus {
-      border-color: rgb(255, 111, 0);
-      outline: none;
-    }
-
-    form button[type="submit"] {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background-color: rgb(255, 111, 0);
-      color: #0d0d0d;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.1s;
-    }
-
-    form button[type="submit"]:hover {
-      background-color: rgb(220, 95, 0);
-      transform: translateY(-1px);
-    }
-
-    /* Map container styling */
-    .map-container {
-      position: relative;
-      width: 100%;
-      /* Aspect ratio 16:9 */
-      padding-bottom: 56.25%; 
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-
-    .map-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Media query for smaller screens (header only) */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        padding: 15px 20px;
-      }
-      nav {
-        margin-top: 10px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- Header with sticky navigation -->
   <header class="sticky">
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
@@ -152,21 +22,49 @@
   </header>
 
   <main>
-    <h1>Get in Touch</h1>
+    <section class="enquiry-section reveal">
+        <h1>Contact Us Directly</h1>
+        <p>Send a direct message via your email client. The details you enter will be pre-filled automatically.</p>
 
-    <!-- Contact Form - Added 'reveal' and 'reveal-delay-1' class -->
-    <section class="card reveal reveal-delay-1">
-      <h2>Contact Us</h2>
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+        <form id="contactForm" class="styled-form">
+            
+            <div class="form-group">
+                <label for="name">Your Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="please enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="please enter your email address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="type">Subject/Type of Enquiry *</label>
+                <select id="type" name="type" required>
+                    <option value="">-- Select reason for contact --</option>
+                    <option value="General Query">General Query</option>
+                    <option value="Quote Follow-up">Quote Follow-up</option>
+                    <option value="After-Sales Support">After-Sales Support</option>
+                    <option value="Business Partnership">Business Partnership</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" rows="6" placeholder="please type your message here"></textarea>
+            </div>
+            
+            <div id="error-message" class="form-response" style="color: #dc2626;"></div>
+            
+            <button type="submit" class="btn orange">
+                Open Email Client
+            </button>
+            
+            <div id="response" class="form-response"></div>
+        </form>
+        
+        </section>
+  </main>
 
     <!-- Instagram Link - New dedicated card/button (reveal-delay-2) -->
     <section class="card social-media reveal reveal-delay-2">
@@ -177,7 +75,6 @@
         <span class="handle">@frc_tuned_</span>
       </a>
     </section>
-
     <!-- Map showing location - Original was reveal-delay-2, now reveal-delay-3 -->
     <section class="card reveal reveal-delay-3">
       <h2>Find Us</h2>
@@ -185,14 +82,13 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.127230072309!2d28.297585375245845!3d-26.192539177083816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953d7e05f94ae9%3A0x4e736d3ec53171bb!2s158%20Victoria%20Ave%2C%20Benoni%2C%201500!5e0!3m2!1sen!2sza!4v1761421550170!5m2!1sen!2sza" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
-  </main>
 
-  <!-- Footer -->
+  </main>
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
-  <!-- Link to the JavaScript file for animations -->
-  <script src="script.js"></script>
+  <script src="contact.js"></script> 
+  <script src="script.js"></script> 
 </body>
 </html>
