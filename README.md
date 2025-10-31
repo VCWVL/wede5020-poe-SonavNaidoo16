@@ -190,17 +190,104 @@ Responisve design (Laptop):
 
   <img width="1898" height="1029" alt="image" src="https://github.com/user-attachments/assets/6946cca6-f15d-424f-8c31-a8e4f2b45d54" />
 
-
 ## Changelog (Part 3)
 
-Feedback from part 2: 
--Feedback Area: Referencing and Source Integration
--Updated all in-text references to follow the Harvard referencing style.
--Matched every in-text citation with the reference list.
--Fixed missing information such as publication years, URLs, and access dates.
--Proofread all references to ensure consistency and accuracy.
--Added responsive design pictures into the ReadMe
--Fixed the lack of dept for part 2 of the change log
+## Feedback & Referencing
+### Updated
+- Revised all in-text references to comply with **Harvard referencing style**.  
+- Matched each citation with its corresponding entry in the reference list.  
+- Completed missing information such as **publication years**, **URLs**, and **access dates**.  
+- Proofread and standardized all references for consistency and accuracy.  
+- Added **responsive design pictures** into the `README.md`.  
+- Improved **depth and detail** for Part 2 changelog documentation.
+
+---
+
+## ReadMe
+### Added
+- Integrated **image references**, **citations**, and **responsive design visuals**.  
+- Added **YouTube video link** showcasing the final implemented website.  
+- Enhanced documentation for setup, usage, and visual demonstrations.  
+- Included **Part 2** and **Part 3** documentation updates.  
+
+### Updated
+- Improved **project overview**, **file structure explanations**, and **navigation details**.  
+- Expanded **SEO and meta descriptions** within documentation.  
+- Added **additional references** and refined visual examples.  
+
+### Removed
+- Deleted redundant file `frctunedreadme.pdf` to reduce repository clutter.  
+
+---
+
+## HTML
+### Added
+- Added new **Enquiry link** to navigation across multiple HTML files.  
+- Created a new `checkout.html` page with payment structure and styling.  
+- Integrated **lightbox functionality** for gallery images.  
+- Enhanced **quote.html** with improved service selection and total calculation features.  
+- Implemented **smooth scrolling** and **scroll reveal animations** on all pages.  
+
+### Updated
+- Refined **contact.html** with an updated Google Maps iframe for accurate location display.  
+- Updated **services.html** with a search bar and improved layout.  
+- Improved **gallery.html** with service link integration and optimized `alt` text attributes.  
+- Enhanced HTML metadata for **SEO optimization** and better user experience.  
+
+---
+
+## CSS
+### Changed
+- Updated and reorganized **CSS structure** for readability and maintainability.  
+- Refined **animations and transitions** to complement scroll effects.  
+- Enhanced **footer and heading styling** for improved design consistency.  
+
+### Added
+- Introduced **animations** and **scroll effects** throughout the site.  
+- Styled **new Enquiry page** elements and responsive form layout.  
+- Enhanced **services and gallery** sections with modular CSS organization.  
+
+---
+
+## JavaScript
+### Refactored
+- Reorganized `script.js` for clarity and better functionality grouping.  
+- Added detailed **comments** to explain functions and improve readability.  
+
+### Added
+- Implemented **global utility function** for currency formatting.  
+- Integrated **Firebase** for form submission functionality.  
+- Added **custom message display** for form feedback.  
+
+### Improved
+- Enhanced **search functionality** and **filter logic** for services and quote pages.  
+- Streamlined **animation handling** across all web pages.  
+
+---
+
+##  Enquiry & Contact Pages
+### Updated
+- Added **Instagram link** for direct social media connection.  
+- Enhanced **form styling**, alignment, and placeholder text.  
+- Organized scripts by removing outdated Firebase code.  
+- Merged **form styles** into the main CSS file for consistency.  
+
+---
+
+## Merged Branches
+- Merged branch `master` multiple times to synchronize updates from the remote repository.  
+- Ensured all new commits, features, and fixes are reflected in the latest version.  
+
+---
+
+## Summary
+- **Documentation:** Improved referencing, visuals, and changelog accuracy.  
+- **Design:** Enhanced interface with refined color schemes, animations, and structure.  
+- **Responsiveness:** Fully optimized layouts and media for all devices.  
+- **Code Quality:** Clean, modular, and professional implementation across HTML, CSS, and JS.  
+- **Professionalism:** Updated README and changelog reflecting all Part 3 development progress.  
+
+---
 
 ## Referencing:
 
