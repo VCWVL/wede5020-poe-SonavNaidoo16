@@ -1,7 +1,7 @@
 document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault(); // STOP the default form submission (which reloads the page)
 
-  // 1. Gather all required form data
+  // Gather all required form data
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const type = document.getElementById("type").value.trim();
@@ -28,7 +28,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
   error.textContent = ""; // clear any previous errors
 
-  // 2. Define the Company Email Address
+  // Define the Company Email Address
   // !!! IMPORTANT: REPLACE THIS PLACEHOLDER WITH YOUR COMPANY'S REAL EMAIL !!!
   const recipient = "info@frctuned.co.za"; 
 
@@ -44,10 +44,10 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     `--- Message ---\n${message}`
   );
 
-  // 4. Construct and open the mailto link
+  // Construct and open the mailto link
   window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
   
-  // 5. Provide feedback to the user
+  // Provide feedback to the user
   if (response) {
       response.style.color = 'rgb(255, 111, 0)'; // Your orange accent color
       response.textContent = "Success! Opening your email client. Please check your device for the new email draft!";

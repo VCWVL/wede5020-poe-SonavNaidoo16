@@ -2,67 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Makes the layout responsive across devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - FRC Tuned</title>
+
     <style>
-        /* Define color variables based on the FRC Tuned website theme */
+        /* GLOBAL THEME COLORS AND BASE STYLES */
         :root {
-            --orange-accent: rgb(255, 111, 0); /* Primary accent color from style.css */
-            --dark-bg: #0a0a0a;             /* Page background */
-            --card-color: #1a1a1a;          /* Card/Container background (darker than page) */
-            --text-color: #f5f5f5;          /* Default light text */
-            --muted-text: #9ca3af;          /* Muted/secondary text */
-            --error-color: #dc2626;         /* Red for errors */
+            --orange-accent: rgb(255, 111, 0); /* Main brand accent color */
+            --dark-bg: #0a0a0a;                /* Background color for the page */
+            --card-color: #1a1a1a;             /* Container background color */
+            --text-color: #f5f5f5;             /* Primary text color */
+            --muted-text: #9ca3af;             /* Secondary/less prominent text color */
+            --error-color: #dc2626;            /* Error red color */
         }
 
-        /* Full-screen dark background */
+        /* BODY LAYOUT */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;    /* Simple, clean font */
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background-color: var(--dark-bg);
-            display: flex;
+            min-height: 100vh;                 /* Full height for screen coverage */
+            background-color: var(--dark-bg);  /* Dark background for contrast */
+            display: flex;                     /* Centers the checkout container */
             justify-content: center;
             align-items: center;
         }
 
-        /* Container to mimic the overlay and give the card effect */
+        /* MAIN CONTAINER (Checkout Card) */
         .container {
             width: 90%;
-            max-width: 450px;
+            max-width: 450px;                  /* Restrict width for better focus */
             margin: 20px;
             padding: 30px;
             background-color: var(--card-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;               /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
             color: var(--text-color);
         }
 
-        /* Headings and Titles */
+        /* TITLES AND HEADINGS*/
         h1, h2 {
             color: var(--orange-accent);
             text-align: center;
             margin-bottom: 20px;
         }
 
-        /* Order Summary Styling */
+        /* ORDER SUMMARY SECTION */
         .summary-item {
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #333;     /* Separator line between items */
         }
 
         .summary-item:last-child {
-            border-bottom: none;
+            border-bottom: none;               /* Remove border for last item */
         }
 
         .summary-item .name {
             color: var(--muted-text);
         }
 
-        /* Total display */
+        /* Total section at the bottom of the order summary */
         .total-row {
             display: flex;
             justify-content: space-between;
@@ -70,10 +72,10 @@
             margin-top: 10px;
             font-size: 1.25rem;
             font-weight: bold;
-            border-top: 2px solid var(--orange-accent);
+            border-top: 2px solid var(--orange-accent); /* Highlights total section */
         }
 
-        /* Buttons */
+        /* BUTTON STYLES*/
         .btn {
             display: block;
             width: 100%;
@@ -83,21 +85,23 @@
             border-radius: 8px;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
             font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
+        /* Primary orange call-to-action button */
         .btn-primary {
             background-color: var(--orange-accent);
             color: var(--dark-bg);
         }
 
+        /* Adds hover animation effect */
         .btn-primary:hover {
             background-color: rgb(255, 140, 50);
-            transform: translateY(-2px);
+            transform: translateY(-2px); /* Subtle lift on hover */
         }
-        
-        /* Back Button - Specific Styling */
+
+        /* BACK BUTTON (text-style) */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -110,12 +114,12 @@
             transition: color 0.2s;
             margin-bottom: 20px;
         }
-        
+
         .back-btn:hover {
             color: var(--text-color);
         }
 
-        /* Payment Form Styling */
+        /* PAYMENT FORM STYLING */
         .form-group {
             margin-bottom: 15px;
         }
@@ -126,6 +130,7 @@
             font-weight: 500;
         }
 
+        /* Text and number inputs styled for dark UI */
         input[type="text"], input[type="number"], input[type="month"] {
             width: 100%;
             padding: 10px;
@@ -136,36 +141,39 @@
             box-sizing: border-box;
         }
 
+        /* Layout for expiry and CVV fields side-by-side */
         .card-details-row {
             display: flex;
             gap: 15px;
         }
 
         .card-details-row > div {
-            flex: 1;
+            flex: 1; /* Makes both inputs equal width */
         }
 
-        /* Utility Class */
+        /* Hidden class to toggle between summary and payment view */
         .hidden {
             display: none !important;
         }
 
-        /* Message Box Styling */
+        /* MESSAGE BOX (Error / Success Notifications)*/
         #messageBox {
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 8px;
             text-align: center;
             font-weight: bold;
-            display: none; /* Initially hidden */
+            display: none; /* Hidden by default */
         }
+
+        /* Error message styling */
         .error {
-            background-color: rgba(220, 38, 38, 0.2); /* Light red background */
+            background-color: rgba(220, 38, 38, 0.2);
             color: var(--error-color);
             border: 1px solid var(--error-color);
         }
 
-        /* Responsive adjustments */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 600px) {
             .container {
                 width: 100%;
@@ -178,47 +186,53 @@
 </head>
 <body>
 
+    <!-- MAIN CHECKOUT CONTAINER -->
     <div class="container">
-        <!-- Message Box for Alerts (Replaces alert()) -->
+
+        <!-- Dynamic message box for success/error alerts -->
         <div id="messageBox" class="error hidden"></div>
 
-        <!-- Order Summary View -->
+        <!-- ORDER SUMMARY -->
         <div id="summaryView">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <!-- New Back Button -->
+                <!-- Back button to return to quote page -->
                 <button id="backToQuoteBtn" class="back-btn" type="button">
                     &larr; Back to Quote
                 </button>
                 <h1 style="text-align: right; margin: 0;">Order Summary</h1>
             </div>
 
-            <div id="summaryDetails">
-                <!-- Items will be populated here by JavaScript -->
-            </div>
+            <!-- Area where selected items will be inserted dynamically -->
+            <div id="summaryDetails"></div>
             
+            <!-- Total cost display -->
             <div class="total-row">
                 <span>Total Due:</span>
                 <span id="totalAmount">R 0.00</span>
             </div>
-            
+
+            <!-- Button to proceed to payment -->
             <button id="proceedToPaymentBtn" class="btn btn-primary">Proceed to Payment</button>
         </div>
 
-        <!-- Payment View -->
+        <!-- PAYMENT FORM -->
         <div id="paymentView" class="hidden">
             <h2>Payment Details</h2>
             
             <form id="paymentForm">
+                <!-- Cardholder name -->
                 <div class="form-group">
                     <label for="cardName">Name on Card</label>
                     <input type="text" id="cardName" required placeholder="John Doe">
                 </div>
                 
+                <!-- Card number -->
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
                     <input type="text" id="cardNumber" required pattern="\d{16}" title="Must be 16 digits" placeholder="4000 1234 5678 9010">
                 </div>
 
+                <!-- Expiry and CVV side-by-side -->
                 <div class="card-details-row">
                     <div class="form-group">
                         <label for="expiry">Expiry (MM/YY)</label>
@@ -231,64 +245,71 @@
                     </div>
                 </div>
 
+                <!-- Back to summary and complete payment buttons -->
                 <button id="backToCheckoutBtn" type="button" class="back-btn" style="margin-top: 15px;">&larr; Back to Order Summary</button>
-
                 <button type="submit" class="btn btn-primary">Complete R <span id="paymentTotalAmount">0.00</span> Payment</button>
             </form>
         </div>
     </div>
 
+    <!-- JAVASCRIPT LOGIC FOR CHECKOUT & PAYMENT -->
     <script>
-        // --- Globals ---
         const summaryView = document.getElementById('summaryView');
         const paymentView = document.getElementById('paymentView');
         const summaryDetails = document.getElementById('summaryDetails');
         const totalAmountSpan = document.getElementById('totalAmount');
         const paymentTotalAmountSpan = document.getElementById('paymentTotalAmount');
         const proceedToPaymentBtn = document.getElementById('proceedToPaymentBtn');
-        const backToQuoteBtn = document.getElementById('backToQuoteBtn'); // The new back button
+        const backToQuoteBtn = document.getElementById('backToQuoteBtn');
         const backToCheckoutBtn = document.getElementById('backToCheckoutBtn');
         const paymentForm = document.getElementById('paymentForm');
         const messageBox = document.getElementById('messageBox');
-        
-        let showPayment = false;
-        let selectedItems = [];
-        let total = 0;
 
-        // --- Utility Functions ---
+        // Global state variables
+        let showPayment = false;  // Tracks which view is active
+        let selectedItems = [];   // Stores the items chosen from the quote page
+        let total = 0;            // Holds total payment amount
 
-        // Function to safely display messages (Replaces alert())
+        // UTILITY FUNCTIONS
+
+        /**
+         * Displays a message (error or success) to the user
+         * Replaces intrusive alert() calls for better UX
+         */
         function showMessage(message, isError = true) {
             messageBox.textContent = message;
             messageBox.classList.remove('hidden', 'error');
+            
             if (isError) {
                 messageBox.classList.add('error');
             } else {
-                // For success, keep it clean or add a success class if needed
+                // Temporary success message styling
                 messageBox.style.backgroundColor = 'rgba(255, 111, 0, 0.2)';
                 messageBox.style.color = 'var(--orange-accent)';
                 messageBox.style.border = '1px solid var(--orange-accent)';
             }
+
+            // Auto-hide message after 5 seconds
             setTimeout(() => {
                 messageBox.classList.add('hidden');
                 messageBox.removeAttribute('style');
             }, 5000);
         }
 
-        // Format number as ZAR currency string
+        /** Formats number into ZAR currency format */
         function formatZAR(amount) {
             return `R ${amount.toFixed(2)}`;
         }
 
-        // Parse query parameters
+        /** Extracts query parameter values from the URL */
         function getQueryParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
 
-        // --- Core Logic ---
+        //  MAIN CHECKOUT LOGIC 
 
-        //  Get data from URL and populate the selectedItems array
+        /** Loads the selected items passed from the quote page */
         function loadItems() {
             const encodedData = getQueryParam('selected');
             if (encodedData) {
@@ -298,30 +319,30 @@
                     
                     if (Array.isArray(parsedItems) && parsedItems.length > 0) {
                         selectedItems = parsedItems;
-                        // Calculate total
+                        // Calculate total cost
                         total = selectedItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
                         return true;
                     }
                 } catch (e) {
                     console.error("Error parsing selected items:", e);
-                    // Redirect back if data is corrupt
-                    window.location.href = 'quote.html';
+                    window.location.href = 'quote.html'; // Redirect on failure
                 }
             }
-            
-            // If no data, redirect back to quote page
+
+            // Redirect if data is missing
             window.location.href = 'quote.html';
             return false;
         }
 
-        //  Update the visual summary
+        /** Renders the summary view dynamically */
         function updateSummary() {
             summaryDetails.innerHTML = '';
-            
+
             if (selectedItems.length === 0) {
                 summaryDetails.innerHTML = '<p class="text-center text-muted-text">No services selected. Please go back to the quote page.</p>';
             }
 
+            // Create and display each item
             selectedItems.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('summary-item');
@@ -339,11 +360,12 @@
                 summaryDetails.appendChild(itemDiv);
             });
 
+            // Update total display
             totalAmountSpan.textContent = formatZAR(total);
             paymentTotalAmountSpan.textContent = formatZAR(total);
         }
 
-        // Switch between summary and payment forms
+        /** Toggles between order summary and payment views */
         function switchView() {
             if (showPayment) {
                 summaryView.classList.add('hidden');
@@ -351,55 +373,54 @@
             } else {
                 summaryView.classList.remove('hidden');
                 paymentView.classList.add('hidden');
-                messageBox.classList.add('hidden'); // Clear message when switching back
+                messageBox.classList.add('hidden'); // Clear message on switch
             }
-            window.scrollTo(0, 0); 
+            window.scrollTo(0, 0);
         }
 
-        // --- Event Handlers ---
+        // EVENT HANDLERS 
 
-        // Back to Quote button click (NEW)
+        // Back to Quote page
         backToQuoteBtn.addEventListener('click', () => {
             window.location.href = 'quote.html';
         });
 
-        // Proceed to Payment button click
+        // Proceed to payment form
         proceedToPaymentBtn.addEventListener('click', () => {
             showPayment = true;
             switchView();
         });
 
-        // Back to Checkout button click
+        // Back to summary
         backToCheckoutBtn.addEventListener('click', () => {
             showPayment = false;
             switchView();
         });
 
-        // Payment Form Submission handler
+        // Form submission (Payment process simulation)
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             if (paymentForm.checkValidity()) {
-                // In a real application, you would send card details to a payment gateway here.
                 showMessage(`Success: Payment of ${formatZAR(total)} confirmed! Redirecting...`, false);
                 
-                // Redirect to the home page (index.html) after successful payment
+                // Simulate redirect after successful payment
                 setTimeout(() => {
-                    window.location.href = 'index.html'; 
-                }, 2000); // Wait 2 seconds so the user can see the success message
-                
+                    window.location.href = 'index.html';
+                }, 2000);
             } else {
-                 showMessage("Error: Please check and fill in all card details correctly.");
+                showMessage("Error: Please check and fill in all card details correctly.");
             }
         });
 
-        // --- Initialization ---
+        //  INITIAL PAGE SETUP 
         if (loadItems()) {
             updateSummary();
             switchView(); 
         }
     </script>
-    <!-- Link to the JavaScript file for animations -->
-  <script src="script.js"></script>
+
+    <!-- Link to animation effects -->
+    <script src="script.js"></script>
 </body>
 </html>

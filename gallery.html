@@ -3,73 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO-friendly title and description -->
   <title>Gallery | FRC Tuned Performance Upgrades & Project Showcase</title>
   <meta name="description" content="Browse the FRC Tuned gallery showcasing our performance upgrades, custom tuning projects, and dyno results for a variety of vehicles.">
+
+  <!-- External CSS file for shared styles across pages -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Inline CSS styles specific to this gallery page -->
   <style>
+    /* General Page Styling */
     body { 
-      font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif; /* Clean, simple font */
       margin: 0;
       padding: 0;
-      background: #0d0d0d; /* Dark background for contrast */
-      color: white; /* Default text color */
+      background: #0d0d0d; /* Dark theme for contrast */
+      color: white; /* Default text color for readability */
     }
 
-    /* Header styling (already in style.css, but kept local for clarity/overrides) */
+    /* Header Styling */
     header {
-      display: flex; /* Horizontal layout for logo and nav */
-      justify-content: space-between;
+      display: flex; /* Positions logo and nav horizontally */
+      justify-content: space-between; /* Space between logo and links */
       align-items: center;
       padding: 15px 30px;
-      background: #111; /* Dark header */
-      border-bottom: 2px solid rgb(255, 111, 0); /* Orange bottom border */
+      background: #111; /* Dark header background */
+      border-bottom: 2px solid rgb(255, 111, 0); /* Orange accent line */
     }
 
-    /* Main content styling */
+    /*  Main Content Container */
     .gallery-container {
         padding: 40px 50px;
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 0 auto; /* Centers the gallery on the page */
     }
 
-    /* Gallery grid layout */
+    /*  Gallery Grid */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      display: grid; /* Creates a flexible image grid layout */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-resizes columns */
+      gap: 15px; /* Spacing between images */
     }
+
+    /*  Gallery Images */
     .gallery img {
-        width: 100%;
-        height: 200px; /* Set a fixed height for uniform look */
-        object-fit: cover; /* Ensures image fills the area without distortion */
-        border-radius: 5px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer; /* Indicate that the image is clickable */
+        width: 100%; /* Ensures image fills its container */
+        height: 200px; /* Consistent height for all images */
+        object-fit: cover; /* Crops image without distortion */
+        border-radius: 5px; /* Smooth corners */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+        cursor: pointer; /* Indicates image is clickable */
     }
+
+    /* Hover effect: zoom and shadow for interactivity */
     .gallery img:hover {
         transform: scale(1.02);
         box-shadow: 0 0 15px rgba(255, 111, 0, 0.6);
     }
 
-    /* Video section styling */
+    /* Video Section Styling */
     .video-section {
         margin-top: 50px;
         padding: 30px;
-        background: #181818;
+        background: #181818; /* Slightly lighter section background */
         border-radius: 10px;
     }
+
+    /* Section heading style */
     .video-section h2 {
         text-align: center;
         color: rgb(255, 111, 0);
         margin-bottom: 20px;
     }
+
+    /* Maintains responsive 16:9 video ratio */
     .video-wrapper {
         position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio (9 ÷ 16 = 0.5625) */
         height: 0;
         overflow: hidden;
         border-radius: 8px;
     }
+
+    /* Makes embedded YouTube video fill its container */
     .video-wrapper iframe {
         position: absolute;
         top: 0;
@@ -77,39 +94,45 @@
         width: 100%;
         height: 100%;
     }
-    
+
+    /*  Responsive Design  */
     @media (max-width: 768px) {
         .gallery-container {
-            padding: 20px;
+            padding: 20px; /* Reduce padding on small screens */
         }
         .gallery {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* One image per row on mobile */
         }
         header {
-            flex-direction: column;
+            flex-direction: column; /* Stack logo and links vertically */
         }
     }
   </style>
 </head>
+
 <body>
   <header class="sticky">
+    <!-- Website logo (text-based for simplicity) -->
     <div class="logo">FRC <span>Tuned</span></div>
+
+    <!-- Navigation menu with page links -->
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="gallery.html" class="active">Gallery</a>
+      <a href="gallery.html" class="active">Gallery</a> <!-- Active page highlighted -->
       <a href="contact.html">Contact</a>
       <a href="enquirey.html">Enquirey</a>
-
     </nav>
   </header>
 
   <main class="gallery-container">
     <h1>Our Projects Gallery</h1>
 
+    <!-- Grid of gallery images showcasing performance work -->
     <div class="gallery">
-     <img class="gallery-image" src="pictures\ecu.jpg" alt="ECU chip and tuning software">
+      <!-- Each image has a descriptive alt tag for accessibility and SEO -->
+      <img class="gallery-image" src="pictures/ecu.jpg" alt="ECU chip and tuning software">
       <img class="gallery-image" src="pictures/suspension.png" alt="Aftermarket performance suspension components">
       <img class="gallery-image" src="pictures/air susp.jpg" alt="Installed air suspension kit on modified sports car">
       <img class="gallery-image" src="pictures/coil.png" alt="Adjustable coilovers for performance vehicle">
@@ -120,24 +143,39 @@
       <img class="gallery-image" src="pictures/track.png" alt="Race car on a track, demonstrating FRC Tuned performance">
       <img class="gallery-image" src="pictures/dynp place.png" alt="Car on a dyno machine with FRC Tuned technician monitoring results">
     </div>
+
+    <!-- YOUTUBE VIDEO -->
     <div class="video-section reveal reveal-delay-1">
       <h2>Watch Our Latest Project Video</h2>
+
+      <!-- Responsive YouTube embed showing project work -->
       <div class="video-wrapper">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/GOQK6rE63VU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/GOQK6rE63VU" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </main>
 
+  <!-- IGHTBOX FEATURE  -->
   <div id="lightbox" class="lightbox-overlay">
-    <span class="lightbox-close">&times;</span>
+    <span class="lightbox-close">&times;</span> <!-- 'X' button to close -->
     <img class="lightbox-content" id="lightbox-img" src="" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div> <!-- Optional caption -->
   </div>
 
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
+  <!-- Links to external JS file controlling interactivity  -->
   <script src="script.js"></script>
 </body>
 </html>

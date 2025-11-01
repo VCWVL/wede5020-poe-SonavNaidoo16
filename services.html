@@ -3,37 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title and SEO description -->
   <title>Our Services | ECU Remapping, Suspension, Exhaust Systems & Body Kits</title>
   <meta name="description" content="View FRC Tuned's complete list of services, including ECU/TCU remapping, suspension upgrades, performance exhaust systems, and custom body kits.">
+
+  <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Inline page-specific CSS styles -->
   <style>
-    /* Specific styles for the services page */
+    /* SERVICES PAGE LAYOUT & STYLING */
+
+    /* Main content container */
     .services {
       padding: 40px 50px;
       max-width: 1000px;
-      margin: 0 auto;
+      margin: 0 auto; /* Centers content */
     }
+
+    /* Page heading */
     .services h1 {
         text-align: center;
         margin-bottom: 40px;
     }
+
+    /* Individual service card container */
     .service-card {
-      background: #181818;
+      background: #181818; /* Dark theme background */
       border-radius: 10px;
       padding: 30px;
       margin-bottom: 30px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     }
+
+    /* Title within each service card */
     .service-card h2 {
-      color: rgb(255, 111, 0);
+      color: rgb(255, 111, 0); /* FRC Tuned’s orange accent */
       border-bottom: 2px solid #333;
       padding-bottom: 10px;
       margin-bottom: 15px;
     }
+
+    /* SEARCH BAR STYLING*/
     .search-container {
         margin-bottom: 40px;
         text-align: center;
     }
+
+    /* Input field styling */
     .search-container input {
         width: 100%;
         max-width: 500px;
@@ -44,31 +62,40 @@
         color: white;
         font-size: 1rem;
     }
+
+    /* Placeholder color for better readability */
     .search-container input::placeholder {
         color: #999;
     }
+
+    /* CALL-TO-ACTION (CTA) SECTION */
     .cta-section {
         text-align: center;
         padding: 40px 0;
         border-top: 1px solid #333;
         margin-top: 40px;
     }
+
     .cta-section p {
         font-size: 1.2rem;
         margin-bottom: 20px;
     }
     
+    /* RESPONSIVE DESIGN (Mobile) */
     @media (max-width: 768px) {
       .services {
-        padding: 20px;
+        padding: 20px; /* Reduce padding for smaller screens */
       }
     }
   </style>
 </head>
+
 <body>
+  <!-- FIXED HEADER WITH NAVIGATION BAR -->
   <header class="sticky">
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
+      <!-- Navigation links to site sections -->
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html" class="active">Services</a>
@@ -78,47 +105,59 @@
     </nav>
   </header>
 
+  <!-- MAIN CONTENT: SERVICE DETAILS SECTION -->
   <main class="services">
+    <!-- Page heading -->
     <h1>Our Services</h1>
     
+    <!-- Live Search Input -->
     <div class="search-container">
-        <input type="text" id="search" placeholder="Search for our service, such as 'ECU Remapping'">
+        <input 
+          type="text" 
+          id="search" 
+          placeholder="Search for our service, such as 'ECU Remapping'"
+        >
     </div>
 
+    <!-- ECU REMAPPING SECTION -->
     <section class="service-card reveal" id="ecu" data-name="ECU Remapping">
       <h2>ECU Remapping</h2>
       <p>
-        Software modifications that remap an automobile's electronic control unit (ECU) improve the engine.  
-        Manufacturers limit the ECU's ability to manipulate fuel, air, and power for safety and commercial reasons. 
+        Software modifications that remap an automobile's electronic control unit (ECU) improve engine performance.  
+        Manufacturers often limit the ECU's fuel, air, and power settings for safety or regulatory reasons.  
         Benefits include increased horsepower, smoother acceleration, and improved fuel efficiency depending on the tuning type selected.
       </p>
     </section>
 
+    <!-- SUSPENSION UPGRADES SECTION -->
     <section class="service-card reveal reveal-delay-1" id="suspension" data-name="Suspension Upgrades">
       <h2>Suspension Upgrades</h2>
       <p>
-        Upgrading or improving components makes suspension more responsive, stable, and comfortable.  
-        Examples: performance bushings, coilovers, improved shock absorbers, and stronger springs.  
-        Benefits: better handling, reduced body sway, and sharper steering accuracy.
+        Suspension upgrades replace or enhance components to improve stability, handling, and comfort.  
+        Common upgrades include performance bushings, coilovers, improved shock absorbers, and stronger springs.  
+        Benefits include sharper steering response, reduced body roll, and increased overall control.
       </p>
     </section>
 
+    <!-- EXHAUST SYSTEMS SECTION -->
     <section class="service-card reveal reveal-delay-2" id="exhaust" data-name="Exhaust Systems">
       <h2>Exhaust Systems</h2>
       <p>
-        Performance exhausts let gases exit more efficiently, boosting power and throttle response.  
-        They also give a sportier sound and are built from durable materials like stainless steel.
+        Performance exhaust systems allow gases to exit more efficiently, resulting in improved power and throttle response.  
+        These systems also enhance sound and aesthetics, and are typically made from high-quality stainless steel for durability.
       </p>
     </section>
 
+    <!-- BODY KITS SECTION -->
     <section class="service-card reveal reveal-delay-3" id="bodykits" data-name="Body Kits">
       <h2>Body Kits</h2>
       <p>
-        Kits include bumpers, side skirts, spoilers, and diffusers to enhance looks and aerodynamics.  
-        High-quality materials like fibreglass, polyurethane, or carbon fibre ensure strength and durability.
+        Custom body kits include bumpers, side skirts, spoilers, and diffusers designed to enhance both appearance and aerodynamics.  
+        Built from strong materials like fibreglass, polyurethane, or carbon fibre, these kits combine style with functionality.
       </p>
     </section>
     
+    <!-- CALL-TO-ACTION SECTION -->
     <section class="cta-section reveal">
         <p>Unlock your vehicle's full potential</p>
         <a href="quote.html" class="btn orange">Get an Instant Quote</a>
@@ -129,6 +168,7 @@
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
+  <!-- JavaScript file for animations, search filter, and interactivity -->
   <script src="script.js"></script>
 </body>
 </html>

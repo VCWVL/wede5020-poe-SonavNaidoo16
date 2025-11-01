@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Ensures the website scales properly across different devices (responsive design) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO title: appears in the browser tab and search results -->
   <title>Contact FRC Tuned | Get in Touch for Tuning & Quotes</title>
+
+  <!-- Meta description: improves SEO and summarises the page content -->
   <meta name="description" content="Contact FRC Tuned in Durban, South Africa, for inquiries, quotes, and expert advice on ECU tuning, suspension, and other performance upgrades.">
+
+  <!-- Links to the external CSS stylesheet for consistent styling across the website -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Imports the Orbitron and Roboto Google Fonts for a modern, automotive look -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- HEADER -->
   <header class="sticky">
+    <!-- Logo section (split between bold and highlighted span) -->
     <div class="logo">FRC <span>Tuned</span></div>
+
+    <!-- Navigation bar linking to main website sections -->
     <nav>
+      <!-- The 'active' class visually highlights the current page (Contact page) -->
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -21,27 +37,34 @@
     </nav>
   </header>
 
+  <!-- MAIN CONTENT  -->
   <main>
+    <!-- CONTACT FORM SECTION  -->
+    <!-- The reveal class likely triggers fade-in or scroll animation via JavaScript -->
     <section class="enquiry-section reveal">
         <h1>Contact Us Directly</h1>
         <p>Send a direct message via your email client. The details you enter will be pre-filled automatically.</p>
 
+        <!-- Contact form for collecting user details -->
         <form id="contactForm" class="styled-form">
             
+            <!-- Full name input field -->
             <div class="form-group">
-                <label for="name">Your Full Name *</label>
+                <label for="name">Your Full Name</label>
                 <input type="text" id="name" name="name" placeholder="please enter your name" required>
             </div>
 
+            <!-- Email address input field -->
             <div class="form-group">
-                <label for="email">Your Email Address *</label>
+                <label for="email">Your Email Address</label>
                 <input type="email" id="email" name="email" placeholder="please enter your email address" required>
             </div>
             
+            <!-- Drop-down menu to specify type of enquiry -->
             <div class="form-group">
-                <label for="type">Subject/Type of Enquiry *</label>
+                <label for="type">Subject for contact</label>
                 <select id="type" name="type" required>
-                    <option value="">-- Select reason for contact --</option>
+                    <option value="">-- please select the reason for contact --</option>
                     <option value="General Query">General Query</option>
                     <option value="Quote Follow-up">Quote Follow-up</option>
                     <option value="After-Sales Support">After-Sales Support</option>
@@ -49,46 +72,69 @@
                 </select>
             </div>
 
+            <!-- Text area for message or inquiry content -->
             <div class="form-group">
                 <label for="message">Your Message *</label>
                 <textarea id="message" name="message" rows="6" placeholder="please type your message here"></textarea>
             </div>
             
+            <!-- Error message area (used to show form validation messages) -->
             <div id="error-message" class="form-response" style="color: #dc2626;"></div>
             
+            <!-- Submit button: when clicked, opens user's default email app with pre-filled data -->
             <button type="submit" class="btn orange">
                 Open Email Client
             </button>
             
+            <!-- Placeholder for dynamic response (e.g., confirmation messages) -->
             <div id="response" class="form-response"></div>
         </form>
-        
-        </section>
+    </section>
   </main>
 
-    <!-- Instagram Link - New dedicated card/button (reveal-delay-2) -->
-    <section class="card social-media reveal reveal-delay-2">
-      <h2>Connect With Us</h2>
-      <a href="https://www.instagram.com/frc_tuned_/" target="_blank" class="instagram-btn">
-        <i class="fab fa-instagram"></i>
-        <span>Follow FRC Tuned</span>
-        <span class="handle">@frc_tuned_</span>
-      </a>
-    </section>
-    <!-- Map showing location - Original was reveal-delay-2, now reveal-delay-3 -->
-    <section class="card reveal reveal-delay-3">
-      <h2>Find Us</h2>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.127230072309!2d28.297585375245845!3d-26.192539177083816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953d7e05f94ae9%3A0x4e736d3ec53171bb!2s158%20Victoria%20Ave%2C%20Benoni%2C%201500!5e0!3m2!1sen!2sza!4v1761421550170!5m2!1sen!2sza" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
+  <!-- SOCIAL MEDIA SECTION  -->
+  <!-- Encourages users to follow the brand on Instagram -->
+  <section class="card social-media reveal reveal-delay-2">
+    <h2>Connect With Us</h2>
 
-  </main>
+    <!-- Instagram button with external link that opens in a new tab -->
+    <a href="https://www.instagram.com/frc_tuned_/" target="_blank" class="instagram-btn">
+      <!-- Font Awesome icon (if loaded in CSS or JS) -->
+      <i class="fab fa-instagram"></i>
+
+      <!-- Display handle and CTA text -->
+      <span>Follow FRC Tuned</span>
+      <span class="handle">@frc_tuned_</span>
+    </a>
+  </section>
+
+  <!--  MAP SECTION -->
+  <!-- Embedded Google Maps iframe to show FRC Tuned's physical location -->
+  <section class="card reveal reveal-delay-3">
+    <h2>Find Us</h2>
+
+    <div class="map-container">
+      <!-- The 'iframe' tag loads the Google Maps location for the workshop -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.127230072309!2d28.297585375245845!3d-26.192539177083816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953d7e05f94ae9%3A0x4e736d3ec53171bb!2s158%20Victoria%20Ave%2C%20Benoni%2C%201500!5e0!3m2!1sen!2sza!4v1761421550170!5m2!1sen!2sza" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER  -->
+  <!-- Consistent footer with copyright -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
+  <!-- JAVASCRIPT FILES  -->
+  <!-- contact.js handles contact form validation and dynamic email client opening -->
   <script src="contact.js"></script> 
+
+  <!-- script.js handles general site animations and the 'reveal' effect on scroll -->
   <script src="script.js"></script> 
 </body>
 </html>
