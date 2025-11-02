@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"> <!-- Ensures special characters are displayed correctly -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Enables responsive design for all devices -->
-
-  <!-- Website title shown in the browser tab -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FRC Tuned | Race Winning ECU & TCU Performance Tuning</title>
-
-  <!-- SEO meta description for search engines -->
   <meta name="description" content="Durban's premier performance tuning experts since 2004. Unlock maximum power and precision with our custom ECU and TCU software development.">
 
-  <!-- Link to the main external stylesheet -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Google Fonts: Orbitron for headings, Roboto for body text -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- The header contains the logo and site-wide navigation menu -->
-  <header class="sticky"> <!-- 'sticky' keeps the header fixed to the top during scroll -->
-    <div class="logo">FRC <span>Tuned</span></div> <!-- Brand logo styled via CSS -->
+  <!-- Header -->
+  <header class="sticky">
+    <div class="logo">FRC <span>Tuned</span></div>
     <nav>
-      <!-- Navigation links to key site pages -->
-      <a href="index.html" class="active">Home</a> <!-- 'active' highlights the current page -->
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
-      <a href="enquirey.html">Enquirey</a>
+      <a href="enquirey.html">Enquiry</a>
     </nav>
   </header>
 
-  <!-- The main attention-grabbing section at the top of the homepage -->
+  <!-- Hero Section -->
   <section class="hero">
-    <!-- A semi-transparent overlay for visual contrast against background image -->
     <div class="overlay"></div>
-
-    <!-- Main hero text and buttons -->
     <div class="hero-content">
       <h1>Race Winning Tuning</h1>
-      <p>
-        Since 2004 we at <strong>FRC Tuned</strong> have been developing ECU & TCU software, 
-        unlocking maximum performance with precision for vehicles of all kinds.
-      </p>
-
-      <!-- Call-to-action buttons -->
+      <p>Since 2004 we at <strong>FRC Tuned</strong> have been developing ECU & TCU software, unlocking maximum performance with precision for vehicles of all kinds.</p>
       <div class="buttons">
         <a href="services.html" class="btn orange">View Our Services</a>
         <a href="quote.html" class="btn black">Get a Quote</a>
       </div>
     </div>
-
-    <!-- Visual element (main image for the hero section) -->
     <div class="hero-image">
-      <img src="pictures/bkgd.png" alt="Performance Car"> <!-- Reference image source: (Twitter, 2025) -->
+      <img src="pictures/bkgd.png" alt="Performance Car">
     </div>
   </section>
 
-  <!-- Highlights the business achievements or experience in a visual format -->
+  <!-- 3D Spline Section -->
+  <section class="spline-section reveal">
+    <div class="iframe-wrapper">
+      <!-- Overlay that hides the “Built with Spline” logo -->
+      <div class="iframe-cover"></div>
+
+      <iframe 
+        src="https://my.spline.design/carastonmartinanimation-DXAJSfNaNwyH71FvslYmOmSK/" 
+        frameborder="0" 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
   <section class="stats reveal reveal-delay-1">
-    <!-- Each 'stat' block represents a numeric achievement -->
     <div class="stat">
       <h2>500+</h2>
       <p>Cars Tuned</p>
@@ -75,21 +74,19 @@
     </div>
   </section>
 
-  <!-- Displays logos of car manufacturers FRC Tuned specializes in -->
+  <!-- Brands Section -->
   <section class="brands reveal">
-    <!-- Each logo image uses a transparent background for clean display -->
     <img src="pictures/bmw-removebg-preview.png" alt="BMW">
     <img src="pictures/ferrari-removebg-preview.png" alt="Ferrari">
     <img src="pictures/audi-removebg-preview.png" alt="Audi">
     <img src="pictures/ford-removebg-preview.png" alt="Ford">
   </section>
 
-  <!-- Displays copyright and company location -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
-  
-  <!-- Connects to the external JS file that controls animations and interactivity-->
+
   <script src="script.js"></script>
 </body>
 </html>

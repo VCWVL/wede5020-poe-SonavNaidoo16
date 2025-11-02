@@ -1,164 +1,100 @@
-/*CSS for FRC Tuning Company Website*/
+/* ======================================= */
+/*      FRC Tuned - Complete Stylesheet     */
+/* ======================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
+
 body {
   background: #111;
   color: #fff;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
-/* Assisted by chatgpt */
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: rgb(255, 111, 0);
-}
-h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-}
-p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  color: #ddd;
-}
-/*end of assistance by chatgpt*/
-
+/* ---------------------- HEADER ---------------------- */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
   background: #181818;
-  /* Added z-index to ensure sticky header overlays content */
-  z-index: 1000; 
+  border-bottom: 2px solid rgb(255, 111, 0);
+  z-index: 1000;
 }
-/* Sticky Header Style */
+
 header.sticky {
-    position: sticky;
-    top: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for lift effect */
-    transition: background 0.3s ease-in-out;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
+
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
   color: rgb(255, 111, 0);
 }
+
 .logo span {
   color: #fff;
 }
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
 nav a {
   color: #fff;
   text-decoration: none;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background 0.3s, color 0.3s;
+  transition: 0.3s;
 }
+
 nav a:hover,
 nav a.active {
   background: rgb(255, 111, 0);
   color: #111;
 }
 
-/* Layout with Flexbox */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #111;
-  border-bottom: 2px solid rgb(255, 111, 0);
-}
-nav {
-  display: flex;
-  gap: 20px;
-}
-main {
-  padding: 20px;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-.gallery img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
-}
-/*Buttons*/
-button, .btn {
-  display: inline-block;
-  background: rgb(255, 111, 0);
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  transition: background 0.3s, transform 0.2s;
-}
-button:hover, .btn:hover {
-  background: #ff8c00; /* Slightly lighter orange on hover */
-  transform: translateY(-2px); /* Slight lift on hover */
-}
-.btn.black {
-  background: #333;
-  color: #fff;
-  border: 1px solid rgb(255, 111, 0);
-}
-.btn.black:hover {
-  background: #444;
-  border-color: #ff8c00;
-}
-
-/* Hero Section Styles */
+/* ---------------------- HERO ---------------------- */
 .hero {
   position: relative;
-  height: 80vh; 
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
   color: #fff;
-  overflow: hidden; /* Ensure image and overlay don't leak */
+  overflow: hidden;
 }
+
 .hero-content {
   z-index: 2;
   max-width: 50%;
   padding-right: 20px;
 }
+
 .hero-content h1 {
   font-size: 3.5rem;
   color: rgb(255, 111, 0);
   margin-bottom: 15px;
 }
+
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
+
 .hero .buttons {
   display: flex;
   gap: 20px;
 }
+
 .hero-image {
   position: absolute;
   top: 0;
@@ -168,23 +104,54 @@ button:hover, .btn:hover {
   height: 100%;
   z-index: 0;
 }
+
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3; /* Make the image slightly transparent */
+  opacity: 0.3;
 }
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); 
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
-/* Stats Section Styles */
+/* ---------------------- BUTTONS ---------------------- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn.orange {
+  background: rgb(255, 111, 0);
+  color: #fff;
+}
+
+.btn.orange:hover {
+  background: #ff8c00;
+}
+
+.btn.black {
+  background: #333;
+  color: #fff;
+  border: 1px solid rgb(255, 111, 0);
+}
+
+.btn.black:hover {
+  background: #444;
+}
+
+/* ---------------------- STATS ---------------------- */
 .stats {
   display: flex;
   justify-content: space-around;
@@ -193,19 +160,20 @@ button:hover, .btn:hover {
   text-align: center;
   border-top: 1px solid #333;
 }
+
 .stat h2 {
   color: rgb(255, 111, 0);
   font-size: 3rem;
   margin-bottom: 5px;
 }
+
 .stat p {
   color: #ddd;
-  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Brands Section Styles */
+/* ---------------------- BRANDS ---------------------- */
 .brands {
   padding: 30px 50px;
   background: #111;
@@ -215,17 +183,70 @@ button:hover, .btn:hover {
   flex-wrap: wrap;
   border-top: 1px solid #333;
 }
+
 .brands img {
   height: 50px;
   margin: 15px;
   opacity: 0.6;
-  transition: opacity 0.3s;
+  transition: 0.3s;
 }
+
 .brands img:hover {
   opacity: 1;
 }
 
-/* Footer Styles */
+/* ---------------------- SPLINE 3D SECTION ---------------------- */
+.spline-section {
+  background-color: #0b0b0b;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.spline-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #ff6f00;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 111, 0, 0.4);
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Overlay that visually hides the Spline logo */
+.iframe-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 160px;     
+  height: 60px;     
+  background: #0b0b0b;
+  z-index: 10;
+  pointer-events: none;
+  border-top-left-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+
+/* ---------------------- FOOTER ---------------------- */
 footer {
   text-align: center;
   padding: 20px;
@@ -234,266 +255,54 @@ footer {
   border-top: 2px solid rgb(255, 111, 0);
 }
 
-/* ANIMATION / SCROLL-REVEAL CLASSES */
-/* Base state: invisible and slightly offset downwards */
+/* ---------------------- REVEAL ANIMATIONS ---------------------- */
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Active state: visible and in original position */
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Staggered delay for sections */
-.reveal-delay-1 {
-    transition-delay: 0.1s;
-}
-.reveal-delay-2 {
-    transition-delay: 0.2s;
-}
-.reveal-delay-3 {
-    transition-delay: 0.3s;
-}
-/* --- Lightbox Styles --- */
-
-/* The Modal (background) */
-.lightbox-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 10000; /* Sit on top of everything */
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-    transition: opacity 0.3s ease;
-    padding-top: 60px; /* Space from top */
-}
-
-/* Modal Content (The Image) */
-.lightbox-content {
-    margin: auto;
-    display: block;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh; /* Limit height to 90% of viewport height */
-    object-fit: contain; /* Ensures the whole image is visible */
-}
-
-/* Caption of Modal Image */
-.lightbox-caption {
-    margin: 15px auto 0 auto;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    font-size: 1.2rem;
-}
-
-/* The Close Button */
-.lightbox-close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.lightbox-close:hover,
-.lightbox-close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .lightbox-content {
-    width: 100%;
-  }
-} 
-
-/* Media Queries for Responsiveness */
+/* ---------------------- RESPONSIVE ---------------------- */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     padding: 15px 20px;
     text-align: center;
   }
+
   nav {
     margin-top: 10px;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .hero {
     flex-direction: column;
     height: auto;
     padding: 40px 20px;
     text-align: center;
   }
+
   .hero-content {
     max-width: 100%;
     padding-right: 0;
     margin-bottom: 30px;
   }
+
   .hero-content h1 {
     font-size: 2.5rem;
   }
-  .hero .buttons {
-    justify-content: center;
+
+  .iframe-cover {
+    width: 90px;
+    height: 25px;
+    bottom: 6px;
+    right: 6px;
   }
-  .hero-image {
-    position: static;
-    height: 300px;
-  }
-  .overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
-  }
-  .stats {
-    flex-direction: column;
-    padding: 30px 10px;
-  }
-  .stat {
-    margin-bottom: 20px;
-  }
-  .brands img {
-    height: 40px;
-    margin: 10px;
-  }
-}
-
-/* ========================================================= */
-/* --- ENQUIRY FORM STYLES (Merged from form.css) --- */
-/* ========================================================= */
-
-/* Styling for the overall form container and section */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.enquiry-section {
-    background-color: #181818; /* Used existing header/card background for consistency */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
-    margin: 40px auto; /* Center the entire section */
-    max-width: 700px; /* Constrain width for better reading flow on desktop */
-}
-
-.enquiry-section h1 {
-    color: rgb(255, 111, 0); /* Primary Orange Accent (Uses existing h1 style) */
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.enquiry-section p {
-    color: #b3b3b3; /* Light grey for body text */
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-/* --- Form Element Styling --- */
-
-.styled-form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.form-group {
-    position: relative; 
-}
-
-/* Label Styling */
-.form-group label {
-    display: block;
-    color: #f0f0f0; /* White/Off-white for clarity */
-    margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-}
-
-/* Input, Textarea, and Select Field Styling */
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #333; /* Dark border */
-    border-radius: 8px;
-    background-color: #0d0d0d; /* Very dark background for fields */
-    color: #f0f0f0;
-    font-size: 1em;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box; 
-}
-
-/* Focus State - The Orange Glow Effect */
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: rgb(255, 111, 0); /* Orange border on focus */
-    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Soft orange glow */
-    outline: none; /* Remove default browser outline */
-}
-
-/* Placeholder text color */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #666; /* Subtler text */
-}
-
-/* Select element specific styling for better appearance */
-.form-group select {
-    /* Custom arrow using SVG, colored in FRC orange */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%2D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4l-14.7-14.7a10%2010%200%200%200-14.1%200L146.2%20188.4%2034.2%2054.7a10%2010%200%200%200-14.1%200L5%2069.4a10%2010%200%200%200%200%2014.1l134.4%20134.4a10%2010%200%200%200%2014.1%200L287%2083.5a10%2010%200%200%200%200-14.1z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 15px top 50%;
-    background-size: 12px auto;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-/* Textarea specific adjustments */
-.form-group textarea {
-    resize: vertical; 
-}
-
-/* Button Styling is already handled by the existing .btn and primary-btn styles! */
-
-/* Form Response Area */
-.form-response {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    color: #f0f0f0;
-    min-height: 50px; /* Give it some vertical space */
-}
-
-/* Media Query for responsiveness, ensuring section is full width on mobile */
-@media (max-width: 768px) {
-    .enquiry-section {
-        padding: 20px;
-        margin: 20px 10px;
-    }
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Defines document type and language for accessibility and SEO -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -14,7 +13,7 @@
 
   <!-- Internal CSS: Handles layout, colors, responsiveness, and component styling -->
   <style>
-    /* ---------- Root Variables ---------- */
+    /* Root Variables */
     :root{
       --accent:#f97316;      /* Primary highlight color (orange) */
       --accent-dark:#ea580c; /* Darker orange for hover effects */
@@ -27,7 +26,7 @@
     /* Global reset for margin, padding, and box-sizing */
     *{box-sizing:border-box;margin:0;padding:0}
 
-    /* ---------- Body Styling ---------- */
+    /*  Body Styling */
     body{
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       background:var(--bg);
@@ -38,7 +37,7 @@
     /* Remove link underlines and inherit color */
     a{color:inherit;text-decoration:none}
 
-    /* ---------- Header and Navigation ---------- */
+    /*  Header and Navigation */
     header{
       display:flex;
       justify-content:space-between;
@@ -62,12 +61,12 @@
     nav a{margin-left:20px;color:var(--text);transition:color .2s;}
     nav a:hover{color:var(--accent);} /* Hover effect */
 
-    /* ---------- Quote Section ---------- */
+    /*  Quote Section */
     .quote-container{max-width:900px;margin:30px auto;padding:20px;}
     .quote-container h1{color:var(--accent);text-align:center;margin-bottom:10px;}
     .info-note{text-align:center;color:var(--muted);margin-bottom:30px;font-size:0.9rem;}
 
-    /* ---------- Search Bar Styling ---------- */
+    /*  Search Bar Styling */
     #search{
       padding:10px 15px;
       width:80%;
@@ -84,7 +83,7 @@
       box-shadow:0 0 6px var(--accent); /* Glow when active */
     }
 
-    /* ---------- Service Category Cards ---------- */
+    /*  Service Category Cards */
     .service-category{
       background:var(--card);
       padding:20px;
@@ -101,7 +100,7 @@
       font-size:1.5rem;
     }
 
-    /* ---------- Item Rows (Individual Services) ---------- */
+    /*  Item Rows */
     .item-row{
       display:flex;
       justify-content:space-between;
@@ -134,7 +133,7 @@
     /* Checkbox style (modern accent color) */
     .itemChk{width:18px;height:18px;accent-color:var(--accent);cursor:pointer;}
 
-    /* ---------- Summary Card ---------- */
+    /* Summary Card */
     .summary-card{
       background:var(--card);padding:20px;border-radius:10px;
       margin-top:30px;box-shadow:0 4px 10px rgba(0,0,0,0.3);
@@ -149,7 +148,7 @@
       font-size:1.5rem;font-weight:bold;color:var(--accent);
     }
 
-    /* ---------- Checkout Button ---------- */
+    /* Checkout */
     #proceed-to-checkout{
       width:100%;padding:15px;margin-top:20px;background:var(--accent);
       color:#fff;border:none;border-radius:5px;font-size:1.1rem;font-weight:bold;
@@ -158,7 +157,7 @@
     #proceed-to-checkout:hover:not(:disabled){background:var(--accent-dark);}
     #proceed-to-checkout:disabled{background:#4a4a4a;cursor:not-allowed;}
 
-    /* ---------- Mobile Responsiveness ---------- */
+    /* Responsiveness */
     @media (max-width:600px){
       header{flex-direction:column;align-items:flex-start;padding:15px 20px;}
       nav{margin-top:10px;flex-direction:row;gap:10px;width:100%;justify-content:space-around;}
@@ -174,7 +173,7 @@
 </head>
 
 <body>
-  <!-- ---------- Sticky Header with Navigation ---------- -->
+  <!-- Sticky Header with Navigation  -->
   <header>
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
@@ -187,7 +186,7 @@
     </nav>
   </header>
 
-  <!-- ---------- Main Quote Form Section ---------- -->
+  <!-- Main Quote Form  -->
   <main class="quote-container">
     <h1>Get Quote & Order</h1>
 
@@ -201,7 +200,7 @@
       For parts pricing and a final, confirmed quote, please proceed to checkout and submit your details.
     </p>
 
-    <!-- ---------- Quote Form Container ---------- -->
+    <!--Quote Form -->
     <form id="quote-form">
 
       <!-- Each section below groups similar services -->
@@ -248,11 +247,63 @@
           </div>
         </div>
       </div>
+        <!-- Suspension -->
+      <div class="service-category">
+        <h2>Suspension Upgrades</h2>
+        <div class="item-row" data-id="coilover-install" data-price="12000" data-name="Coilover Installation (Parts not included)">
+          <div class="item-details">
+            <input type="checkbox" id="check-coil" class="itemChk">
+            <label for="check-coil">Coilover Installation (Parts not included)</label>
+          </div>
+          <span class="item-price">R12,000</span>
+          <div class="quantity-control">
+            <label for="qty-coil">Qty:</label>
+            <input type="number" id="qty-coil" class="qty" value="1" min="1" disabled>
+          </div>
+        </div>
 
-      <!-- Other sections follow identical logic (Suspension, Exhaust, etc.) -->
-      <!-- ... (omitted here for brevity; same structure and comments apply) ... -->
+        <div class="item-row" data-id="springs-install" data-price="5000" data-name="Lowering Springs Installation">
+          <div class="item-details">
+            <input type="checkbox" id="check-springs" class="itemChk">
+            <label for="check-springs">Lowering Springs Installation</label>
+          </div>
+          <span class="item-price">R5,000</span>
+          <div class="quantity-control">
+            <label for="qty-springs">Qty:</label>
+            <input type="number" id="qty-springs" class="qty" value="1" min="1" disabled>
+          </div>
+        </div>
+      </div>
 
-      <!-- ---------- Summary Section ---------- -->
+      <!-- Exhaust & Body -->
+      <div class="service-category">
+        <h2>Exhaust & Body</h2>
+        <div class="item-row" data-id="full-exhaust" data-price="8000" data-name="Custom Full Exhaust System">
+          <div class="item-details">
+            <input type="checkbox" id="check-exhaust" class="itemChk">
+            <label for="check-exhaust">Custom Full Exhaust System</label>
+          </div>
+          <span class="item-price">R8,000</span>
+          <div class="quantity-control">
+            <label for="qty-exhaust">Qty:</label>
+            <input type="number" id="qty-exhaust" class="qty" value="1" min="1" disabled>
+          </div>
+        </div>
+
+        <div class="item-row" data-id="bodykit-install" data-price="5000" data-name="Body Kit Installation (Excl. Paint)">
+          <div class="item-details">
+            <input type="checkbox" id="check-bodykit" class="itemChk">
+            <label for="check-bodykit">Body Kit Installation (Excl. Paint)</label>
+          </div>
+          <span class="item-price">R5,000</span>
+          <div class="quantity-control">
+            <label for="qty-bodykit">Qty:</label>
+            <input type="number" id="qty-bodykit" class="qty" value="1" min="1" disabled>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summry Section -->
       <div class="summary-card">
         <h2>Quote Summary</h2>
         <p id="subtotal-section"><span>Subtotal:</span><span id="subtotal">R0.00</span></p>
@@ -262,14 +313,14 @@
     </form>
   </main>
 
-  <!-- ---------- Footer ---------- -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
 
-  <!-- ---------- JavaScript Logic ---------- -->
+  <!-- JavaScript -->
   <script>
-    /* === Function: Format currency to South African Rand (ZAR) === */
+    /* Money handlinh */
     function formatZAR(amount) {
       return new Intl.NumberFormat('en-ZA', {
         style: 'currency',
@@ -285,7 +336,7 @@
     const totalDisplay = document.getElementById('total');
     const proceedToCheckoutBtn = document.getElementById('proceed-to-checkout');
 
-    /* === Function: Recalculate totals when items are selected or changed === */
+    /* Recalculate totals when items are selected */
     function recalc() {
       let subtotal = 0;
       let selectedItems = [];
@@ -320,7 +371,7 @@
       }
     }
 
-    /* === Checkout Button Redirect === */
+    /* Checkout Button Redirect */
     proceedToCheckoutBtn.addEventListener('click', () => {
       const data = proceedToCheckoutBtn.dataset.items;
       if (data) {
@@ -330,7 +381,7 @@
       }
     });
 
-    /* === Checkbox Change Event === */
+    /* Checkbox Change Event */
     form.addEventListener('change', e => {
       if (e.target.classList.contains('itemChk')) {
         const qtyInput = e.target.closest('.item-row').querySelector('.qty');
@@ -341,7 +392,7 @@
       }
     });
 
-    /* === Quantity Input Change Event === */
+    /* Quantity Input Change Event */
     form.addEventListener('input', e => {
       if (e.target.classList.contains('qty')) recalc();
     });
@@ -349,7 +400,7 @@
     // Initial calculation on page load
     recalc();
 
-    /* === Search Filter Logic === */
+    /* Search Filter Logic */
     const searchInput = document.getElementById('search');
     searchInput.addEventListener('input', () => {
       const query = searchInput.value.trim().toLowerCase();
