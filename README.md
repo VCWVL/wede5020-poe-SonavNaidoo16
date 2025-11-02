@@ -193,7 +193,7 @@ Responisve design (Laptop):
 ## Changelog (Part 3)
 
 ## Feedback & Referencing
-### Updated
+###  Updated
 - Revised all in-text references to comply with **Harvard referencing style**.  
 - Matched each citation with its corresponding entry in the reference list.  
 - Completed missing information such as **publication years**, **URLs**, and **access dates**.  
@@ -217,7 +217,6 @@ Responisve design (Laptop):
 
 ### Removed
 - Deleted redundant file `frctunedreadme.pdf` to reduce repository clutter.  
-
 ---
 
 ## HTML
@@ -228,16 +227,21 @@ Responisve design (Laptop):
 - Enhanced **quote.html** with improved service selection and total calculation features.  
 - Implemented **smooth scrolling** and **scroll reveal animations** on all pages.  
 
-### Updated
+###  Updated
 - Refined **contact.html** with an updated Google Maps iframe for accurate location display.  
 - Updated **services.html** with a search bar and improved layout.  
 - Improved **gallery.html** with service link integration and optimized `alt` text attributes.  
 - Enhanced HTML metadata for **SEO optimization** and better user experience.  
+- **Enhanced HTML structure and styling** across multiple pages for improved accessibility and responsiveness.  
+- Updated **index.html** with better meta tags, improved hero section, and descriptive comments.  
+- Refined **quote.html** and **services.html** with enhanced layout and search functionality.  
+- Fixed **duplicate JavaScript link** in the About page footer.  
+- **Updated contact page:** enhanced enquiry form with new fields, improved validation, and added email client integration.  
 
 ---
 
-## CSS
-### Changed
+##  CSS
+###  Changed
 - Updated and reorganized **CSS structure** for readability and maintainability.  
 - Refined **animations and transitions** to complement scroll effects.  
 - Enhanced **footer and heading styling** for improved design consistency.  
@@ -246,6 +250,7 @@ Responisve design (Laptop):
 - Introduced **animations** and **scroll effects** throughout the site.  
 - Styled **new Enquiry page** elements and responsive form layout.  
 - Enhanced **services and gallery** sections with modular CSS organization.  
+- Added new styles in `style.css` for **form headers**, **lightbox**, and **spline section** to maintain consistency across pages.  
 
 ---
 
@@ -253,24 +258,31 @@ Responisve design (Laptop):
 ### Refactored
 - Reorganized `script.js` for clarity and better functionality grouping.  
 - Added detailed **comments** to explain functions and improve readability.  
+- Optimized **DOMContentLoaded** logic for improved performance.  
 
 ### Added
 - Implemented **global utility function** for currency formatting.  
 - Integrated **Firebase** for form submission functionality.  
 - Added **custom message display** for form feedback.  
+- Introduced **3D animations** across key web sections for visual enhancement.  
 
 ### Improved
 - Enhanced **search functionality** and **filter logic** for services and quote pages.  
 - Streamlined **animation handling** across all web pages.  
+- Updated JavaScript for **form submission feedback** and improved validation flow.  
 
 ---
 
-##  Enquiry & Contact Pages
+## Enquiry & Contact Pages
 ### Updated
 - Added **Instagram link** for direct social media connection.  
 - Enhanced **form styling**, alignment, and placeholder text.  
 - Organized scripts by removing outdated Firebase code.  
 - Merged **form styles** into the main CSS file for consistency.  
+- Improved **form structure** and added styling for the **social media section**.  
+- Enhanced **contact.html**, **enquiry.html**, and **services.html** with new layouts, typography, and structure.  
+- **Removed redundant CSS links** and streamlined code for better performance.  
+- Completed **final touch-ups** for layout and visual balance.  
 
 ---
 
@@ -282,12 +294,48 @@ Responisve design (Laptop):
 
 ## Summary
 - **Documentation:** Improved referencing, visuals, and changelog accuracy.  
-- **Design:** Enhanced interface with refined color schemes, animations, and structure.  
+- **Design:** Enhanced interface with refined color schemes, 3D animations, and modern layout.  
 - **Responsiveness:** Fully optimized layouts and media for all devices.  
 - **Code Quality:** Clean, modular, and professional implementation across HTML, CSS, and JS.  
 - **Professionalism:** Updated README and changelog reflecting all Part 3 development progress.  
 
 ---
+## Pictures of website
+## HomePage
+<img width="1898" height="961" alt="image" src="https://github.com/user-attachments/assets/9b52e5e7-057c-4694-9e34-07dfd33eb0c6" />
+<img width="1891" height="936" alt="image" src="https://github.com/user-attachments/assets/8ab0b8db-efb2-412d-9832-0699a5d1f215" />
+<img width="1898" height="942" alt="image" src="https://github.com/user-attachments/assets/b43c143d-8c0b-4da8-8c10-b1f2b0b2d2f9" />
+
+## QuotePage
+<img width="1899" height="965" alt="image" src="https://github.com/user-attachments/assets/46d7c366-867b-4733-8ef5-f0ae1345266d" />
+<img width="1893" height="952" alt="image" src="https://github.com/user-attachments/assets/9527afb0-15b2-45ff-b6df-6ce273131bda" />
+<img width="1898" height="924" alt="image" src="https://github.com/user-attachments/assets/f9a50b01-8f31-4064-bb80-f06fa2acf56f" />
+<img width="1904" height="941" alt="image" src="https://github.com/user-attachments/assets/4e560c8c-0c22-4257-9aa4-e7941c08f554" />
+
+## checkoutPage
+<img width="1896" height="944" alt="image" src="https://github.com/user-attachments/assets/97363a1b-1c27-419f-a35a-6a81a3f50943" />
+<img width="1896" height="942" alt="image" src="https://github.com/user-attachments/assets/1d0b9f7e-c4c9-47e0-81da-27c82ec68ce5" />
+
+## AboutPage
+<img width="1889" height="951" alt="image" src="https://github.com/user-attachments/assets/37c450f6-566d-4e8f-854b-b6c2aca0eb07" />
+
+## ServicePage
+<img width="1885" height="954" alt="image" src="https://github.com/user-attachments/assets/a3b58559-55f1-45c7-bfaa-e6cfa189e8f0" />
+<img width="1888" height="949" alt="image" src="https://github.com/user-attachments/assets/8f02c6f4-e4a4-4ba0-8e06-9d4c9405ec83" />
+
+## GalleryPage
+<img width="1895" height="952" alt="image" src="https://github.com/user-attachments/assets/a3ef2186-0acf-4275-9f32-4dbc5d505711" />
+<img width="1895" height="944" alt="image" src="https://github.com/user-attachments/assets/591e0e61-d515-439d-8e6c-c775d11ed7ab" />
+<img width="1877" height="941" alt="image" src="https://github.com/user-attachments/assets/b39861a2-38a6-4a3c-b856-794911862620" />
+
+## ContactPage
+<img width="1885" height="946" alt="image" src="https://github.com/user-attachments/assets/9d271741-b0d2-482f-a767-bf9fef1326c3" />
+<img width="1894" height="883" alt="image" src="https://github.com/user-attachments/assets/ae308005-d3c8-43a3-8bd0-c0764254200d" />
+<img width="1894" height="950" alt="image" src="https://github.com/user-attachments/assets/149d1000-c02e-42a9-856c-a7d4a97321c9" />
+<img width="1889" height="953" alt="image" src="https://github.com/user-attachments/assets/792041e2-a077-46d0-8df0-22dfa1927032" />
+
+## EnquireyPage
+<img width="1894" height="952" alt="image" src="https://github.com/user-attachments/assets/206aa37b-e16f-4f24-9f73-9f598ac9dea1" />
 
 ## Referencing:
 
@@ -329,6 +377,8 @@ W3Schools. (2024). HTML Tutorial. Available at: https://www.w3schools.com/html/ 
 Mozilla Developer Network (MDN). (2024). CSS Basics. Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS (Accessed: 24 October 2025).
 
 YouTube 2025. GOQK6rE63VU – embedded video [Online]. Available at: https://www.youtube.com/embed/GOQK6rE63VU (Accessed: 24 October 2025).
+
+Spline 2025. 3D design tool for the web. [online] Available at: https://spline.design/ (Accessed: 26 October 2025).
 
 ChatGPT (2025) Shared conversation: SEO implementation for HTML websites. Available at: https://chatgpt.com/share/68fe0577-a058-800d-b9fd-60df085d201f (Accessed: 26 October 2025).
 <img width="1552" height="930" alt="image" src="https://github.com/user-attachments/assets/819c32db-8f33-4022-9d8f-f4bad4d2a7ac" />
