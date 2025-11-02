@@ -11,6 +11,9 @@
   <!-- Global stylesheet -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Imports Google Fonts used in the design for modern and consistent typography. -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
   <!-- Inline page-specific CSS styles -->
   <style>
     /* SERVICES PAGE LAYOUT & STYLING */
@@ -20,12 +23,19 @@
       padding: 40px 50px;
       max-width: 1000px;
       margin: 0 auto; /* Centers content */
+      background-color: #111;
+      color: #fff;
     }
 
     /* Page heading */
     .services h1 {
+        font-family: 'Orbitron', sans-serif;
         text-align: center;
-        margin-bottom: 40px;
+        color: rgb(255, 111, 0);
+        margin-bottom: 60px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 
     /* Individual service card container */
@@ -34,107 +44,78 @@
       border-radius: 10px;
       padding: 30px;
       margin-bottom: 30px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-left: 5px solid rgb(255, 111, 0);
     }
 
-    /* Title within each service card */
+    /* Card heading */
     .service-card h2 {
-      color: rgb(255, 111, 0); /* FRC Tuned’s orange accent */
-      border-bottom: 2px solid #333;
-      padding-bottom: 10px;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      margin-top: 0;
       margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 111, 0, 0.5);
+      padding-bottom: 5px;
     }
 
-    /* SEARCH BAR STYLING*/
-    .search-container {
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
-    /* Input field styling */
-    .search-container input {
-        width: 100%;
-        max-width: 500px;
-        padding: 10px 15px;
-        border: 2px solid rgb(255, 111, 0);
-        border-radius: 5px;
-        background: #1a1a1a;
-        color: white;
-        font-size: 1rem;
-    }
-
-    /* Placeholder color for better readability */
-    .search-container input::placeholder {
-        color: #999;
-    }
-
-    /* CALL-TO-ACTION (CTA) SECTION */
+    /* Call-to-action (CTA) section */
     .cta-section {
         text-align: center;
-        padding: 40px 0;
-        border-top: 1px solid #333;
-        margin-top: 40px;
+        padding: 50px 0;
     }
 
     .cta-section p {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         margin-bottom: 20px;
+        color: #f5f5f5;
     }
-    
-    /* RESPONSIVE DESIGN (Mobile) */
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .services {
-        padding: 20px; /* Reduce padding for smaller screens */
+        padding: 30px 20px;
+      }
+      .services h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- FIXED HEADER WITH NAVIGATION BAR -->
+  <!-- Standard Header Structure - Updated to include the logo for consistent styling -->
   <header class="sticky">
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
-      <!-- Navigation links to site sections -->
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html" class="active">Services</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Contact</a>
-      <a href="enquirey.html">Enquirey</a>
+      <a href="enquirey.html">Enquiry</a>
     </nav>
   </header>
 
-  <!-- MAIN CONTENT: SERVICE DETAILS SECTION -->
   <main class="services">
-    <!-- Page heading -->
-    <h1>Our Services</h1>
-    
-    <!-- Live Search Input -->
-    <div class="search-container">
-        <input 
-          type="text" 
-          id="search" 
-          placeholder="Search for our service, such as 'ECU Remapping'"
-        >
-    </div>
+    <h1>Our Performance Services</h1>
+    <p class="intro-text">
+      From custom software development to comprehensive performance upgrades, FRC Tuned offers a full suite of services to push your vehicle's limits safely and reliably.
+    </p>
 
     <!-- ECU REMAPPING SECTION -->
-    <section class="service-card reveal" id="ecu" data-name="ECU Remapping">
-      <h2>ECU Remapping</h2>
+    <section class="service-card reveal" id="ecu-tcu" data-name="ECU & TCU Remapping">
+      <h2>ECU & TCU Remapping</h2>
       <p>
-        Software modifications that remap an automobile's electronic control unit (ECU) improve engine performance.  
-        Manufacturers often limit the ECU's fuel, air, and power settings for safety or regulatory reasons.  
-        Benefits include increased horsepower, smoother acceleration, and improved fuel efficiency depending on the tuning type selected.
+        Our core service involves custom reprogramming of your Engine Control Unit (ECU) and Transmission Control Unit (TCU). 
+        This is a tailored software calibration to optimize fuel, timing, boost pressure, and shifting logic for maximum power, torque, and efficiency while maintaining reliability.
       </p>
     </section>
 
-    <!-- SUSPENSION UPGRADES SECTION -->
-    <section class="service-card reveal reveal-delay-1" id="suspension" data-name="Suspension Upgrades">
-      <h2>Suspension Upgrades</h2>
+    <!-- SUSPENSION SECTION -->
+    <section class="service-card reveal reveal-delay-1" id="suspension" data-name="Suspension Enhancements">
+      <h2>Suspension Enhancements</h2>
       <p>
-        Suspension upgrades replace or enhance components to improve stability, handling, and comfort.  
-        Common upgrades include performance bushings, coilovers, improved shock absorbers, and stronger springs.  
+        Upgrading your suspension is crucial for improved handling and driving dynamics. We offer coilovers, lowering springs, and full shock/strut replacements for better cornering and reduced squat/dive. 
         Benefits include sharper steering response, reduced body roll, and increased overall control.
       </p>
     </section>
@@ -168,7 +149,7 @@
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
   
-  <!-- JavaScript file for animations, search filter, and interactivity -->
+  <!-- JavaScript file for animations, search filter, etc. -->
   <script src="script.js"></script>
 </body>
 </html>

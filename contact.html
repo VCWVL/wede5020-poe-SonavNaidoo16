@@ -8,10 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <!-- Links to the external CSS stylesheet for consistent styling across the website -->
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for social media icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     /* Base styling */
+    /* NOTE: Many of the card styles are now in style.css, but these page-specific styles remain */
     .social-media {
       background: #111;
       padding: 2rem;
@@ -23,85 +25,94 @@
     }
 
     .social-media h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: #ff6600;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      color: rgb(255, 111, 0);
+      margin-bottom: 25px;
     }
 
     .instagram-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      background: linear-gradient(45deg, #ff6600, #ff2a68);
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #992999);
       color: white;
       text-decoration: none;
-      padding: 1rem 1.8rem;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.2s;
+      gap: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .instagram-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
     .instagram-btn i {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
 
-    .instagram-btn .handle {
+    .handle {
       display: block;
-      font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: normal;
       opacity: 0.9;
     }
 
-    /* Map section */
+    .contact-details {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .contact-details li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-details li i {
+      color: rgb(255, 111, 0);
+      margin-right: 15px;
+      font-size: 1.5rem;
+      width: 30px; /* Ensures alignment */
+      text-align: center;
+    }
+
     .map-container {
-      border: 2px solid #ff6600;
-      border-radius: 15px;
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.25);
-      max-width: 900px;
-      margin: 2rem auto;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .map-container iframe {
       width: 100%;
-      height: 400px;
+      height: 100%;
       border: none;
     }
 
-    .card h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: #ff6600;
-      text-align: center;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .map-container iframe {
-        height: 300px;
+    /* Small screen adjustments */
+    @media (max-width: 600px) {
+      .social-media {
+        padding: 1.5rem;
       }
-
       .instagram-btn {
-        flex-direction: column;
-        gap: 0.4rem;
-        padding: 1rem;
+        font-size: 1rem;
+        padding: 10px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="sticky">
+  <!-- Header remains the same structure as other pages -->
+  <header>
     <div class="logo">FRC <span>Tuned</span></div>
     <nav>
       <a href="index.html">Home</a>
@@ -109,81 +120,97 @@
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="enquirey.html">Enquirey</a>
+      <a href="enquirey.html">Enquiry</a>
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <section class="enquiry-section reveal">
-      <h1>Contact Us Directly</h1>
-      <p>Send a direct message via your email client.</p>
+  <main class="container">
+    
+    <!-- NEW: Centralized header for the page - Visually grouped with the form below -->
+    <div class="form-header-card reveal reveal-delay-0">
+        <h1>Contact FRC Tuned</h1>
+        <p>Whether you have a technical question, need to book a service, or want to discuss a custom build, get in touch with our team directly.</p>
+    </div>
 
-      <form id="contactForm" class="styled-form">
-        <div class="form-group">
-          <label for="name">Your Full Name</label>
-          <input type="text" id="name" name="name" placeholder="please enter your name" required>
+    <!-- Contact Form Section - Note: Uses the styled-form class right after form-header-card -->
+    <section class="styled-form reveal reveal-delay-1">
+        <h2>Send a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Full Name">
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="email@example.com">
+          </div>
+  
+          <div class="form-group">
+            <label for="type">Reason for Contact:</label>
+            <select id="type" name="type" required>
+              <option value="">Select a reason</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Booking & Quote">Booking & Quote</option>
+              <option value="Technical Support">Technical Support</option>
+              <option value="Partnership">Partnership</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us what you're looking for..."></textarea>
+          </div>
+  
+          <div id="error-message" class="form-response" style="color: #dc2626;"></div>
+          <!-- Updated button class for consistency -->
+          <button type="submit" class="btn orange">Send Email</button> 
+          <div id="response" class="form-response"></div>
+        </form>
+    </section>
+
+    <!-- Contact Details Card (Standalone Card) -->
+    <section class="styled-form reveal reveal-delay-2">
+      <h2>Our Details</h2>
+      <ul class="contact-details">
+        <li><i class="fas fa-map-marker-alt"></i> Durban, KwaZulu-Natal, South Africa</li>
+        <li><i class="fas fa-phone"></i> +27 (0)31 555 1234 (Placeholder)</li>
+        <li><i class="fas fa-envelope"></i> info@frctuned.co.za (Placeholder)</li>
+        <li><i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 5:00 PM</li>
+      </ul>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION (Standalone Card) -->
+    <section class="styled-form social-media reveal reveal-delay-3">
+      <h2>Connect With Us</h2>
+      <a href="https://www.instagram.com/frc_tuned_/" target="_blank" class="instagram-btn">
+        <i class="fab fa-instagram"></i>
+        <div>
+          <span>Follow FRC Tuned</span>
+          <span class="handle">@frc_tuned_</span>
         </div>
+      </a>
+    </section>
 
-        <div class="form-group">
-          <label for="email">Your Email Address</label>
-          <input type="email" id="email" name="email" placeholder="please enter your email address" required>
-        </div>
-
-        <div class="form-group">
-          <label for="type">Subject for contact</label>
-          <select id="type" name="type" required>
-            <option value="">-- please select the reason for contact --</option>
-            <option value="General Query">General Query</option>
-            <option value="Quote Follow-up">Quote Follow-up</option>
-            <option value="After-Sales Support">After-Sales Support</option>
-            <option value="Business Partnership">Business Partnership</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Your Message *</label>
-          <textarea id="message" name="message" rows="6" placeholder="please type your message here"></textarea>
-        </div>
-
-        <div id="error-message" class="form-response" style="color: #dc2626;"></div>
-        <button type="submit" class="btn orange">Submit</button>
-        <div id="response" class="form-response"></div>
-      </form>
+    <!-- MAP SECTION (Standalone Card) -->
+    <section class="styled-form reveal reveal-delay-4">
+      <h2>Find Us</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.127230072309!2d28.297585375245845!3d-26.192539177083816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ce4335c0261%3A0xc3f1738734e56598!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1701389278921!5m2!1sen!2sza"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </section>
   </main>
 
-  <!-- SOCIAL MEDIA SECTION -->
-  <section class="card social-media reveal reveal-delay-2">
-    <h2>Connect With Us</h2>
-    <a href="https://www.instagram.com/frc_tuned_/" target="_blank" class="instagram-btn">
-      <i class="fab fa-instagram"></i>
-      <div>
-        <span>Follow FRC Tuned</span>
-        <span class="handle">@frc_tuned_</span>
-      </div>
-    </a>
-  </section>
-
-  <!-- MAP SECTION -->
-  <section class="card reveal reveal-delay-3">
-    <h2>Find Us</h2>
-    <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.127230072309!2d28.297585375245845!3d-26.192539177083816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953d7e05f94ae9%3A0x4e736d3ec53171bb!2s158%20Victoria%20Ave%2C%20Benoni%2C%201500!5e0!3m2!1sen!2sza!4v1761421550170!5m2!1sen!2sza" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 FRC Tuned | Durban, South Africa</p>
   </footer>
-
-  <!-- Your existing JS -->
+  
+  <!--JAVASCRIPT LINK -->
   <script src="contact.js"></script>
   <script src="script.js"></script>
 </body>

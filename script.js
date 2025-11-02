@@ -28,221 +28,48 @@ navLinks.forEach((link) => {
     });
 });
 
+
 // PAGE-SPECIFIC LOGIC (Runs after DOM loads) 
 document.addEventListener('DOMContentLoaded', () => {
-    // SCROLL REVEAL ANIMATION 
+
+    // -----------------------------------------------------------
+    // 1. SCROLL REVEAL ANIMATION 
+    // This function adds a class to elements when they enter the viewport.
+    // -----------------------------------------------------------
     const revealElements = document.querySelectorAll('.reveal');
-    // If there are elements to animate
+
+    // Check if there are elements to observe
     if (revealElements.length > 0) {
-        // Intersection Observer configuration
+        // Options for the Intersection Observer
         const observerOptions = {
-            root: null,          // Use the viewport
-            rootMargin: '0px',   // No margin offset
-            threshold: 0.1       // Trigger when 10% of the element is visible
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
         };
 
-        // Callback: runs when an element enters the viewport
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
-                const targetElement = entry.target;
+                // If the element is now intersecting (visible)
                 if (entry.isIntersecting) {
-                    targetElement.classList.add('active'); // Trigger animation
-                    observer.unobserve(targetElement);     // Stop observing once revealed
+                    // Add the 'active' class to start the CSS animation
+                    entry.target.classList.add('active');
+                    // Stop observing the element once it has been revealed
+                    observer.unobserve(entry.target);
                 }
             });
         };
-        // Create observer and attach it to all .reveal elements
+
+        // Create the observer and attach it to all reveal elements
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         revealElements.forEach(element => {
             observer.observe(element);
         });
     }
 
-    //  SEARCH FILTER (for quote.html / services.html) 
-    const searchInput = document.getElementById('search');
-    // Only run this if the page contains a search bar
-    if (searchInput) {
-        searchInput.addEventListener('keyup', () => {
-            const query = searchInput.value.toLowerCase(); // Convert to lowercase for comparison
-
-            // Loop through all service categories
-            document.querySelectorAll('.service-category').forEach((category) => {
-                let hasVisibleItem = false; // Track if this category has a match
-
-                category.querySelectorAll('.item-row').forEach((row) => {
-                    const itemName = (row.dataset.name || '').toLowerCase();
-                    if (itemName.includes(query)) {
-                        row.style.display = '';   // Show matching item
-                        hasVisibleItem = true;
-                    } else {
-                        row.style.display = 'none'; // Hide non-matching item
-                    }
-                });
-
-                // Hide entire category if it has no visible items
-                category.style.display = hasVisibleItem ? '' : 'none';
-            });
-        });
-    }
-
-    // QUOTE CALCULATOR & CHECKOUT HANDLER 
-    const quoteForm = document.getElementById('quoteForm');
-    if (quoteForm) {
-        const VAT_RATE = 0.15; // South African VAT = 15%
-
-        // Get UI elements for live calculation updates
-        const subTotalSpan = document.getElementById('subTotal');
-        const vatSpan = document.getElementById('vat');
-        const totalSpan = document.getElementById('total');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-
-        // Function to recalculate totals dynamically
-        const recalc = () => {
-            let subTotal = 0;
-            const selectedItems = [];
-
-            // Loop through each available service item
-            document.querySelectorAll('.item-row').forEach((row) => {
-                const checkbox = row.querySelector('.itemChk');
-                const qtyInput = row.querySelector('.qty');
-
-                if (checkbox && checkbox.checked && qtyInput) {
-                    const itemPrice = Number(row.dataset.price) || 0;
-                    const itemName = row.dataset.name || 'Unknown Item';
-                    const quantity = Number(qtyInput.value) || 0;
-
-                    const itemTotal = itemPrice * quantity;
-                    subTotal += itemTotal;
-
-                    // Only save if quantity is valid
-                    if (quantity > 0) {
-                        selectedItems.push({
-                            name: itemName,
-                            price: itemPrice,
-                            qty: quantity,
-                            total: itemTotal
-                        });
-                    }
-                }
-            });
-
-            // Calculate VAT and total
-            const vat = subTotal * VAT_RATE;
-            const total = subTotal + vat;
-
-            // Display formatted totals
-            subTotalSpan.textContent = formatZAR(subTotal);
-            vatSpan.textContent = formatZAR(vat);
-            totalSpan.textContent = formatZAR(total);
-
-            // Disable checkout if no items selected
-            checkoutBtn.disabled = selectedItems.length === 0;
-
-            // Save selections for the checkout page
-            localStorage.setItem('quoteItems', JSON.stringify(selectedItems));
-            localStorage.setItem('quoteTotal', JSON.stringify({ subTotal, vat, total }));
-        };
-
-        // FORM EVENT HANDLERS
-
-        // Handle "Checkout" form submission
-        quoteForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const storedItems = localStorage.getItem('quoteItems');
-            if (storedItems && JSON.parse(storedItems).length > 0) {
-                window.location.href = 'checkout.html'; // Redirect to checkout
-            } else {
-                alert('Please select at least one item to proceed to checkout.');
-            }
-        });
-
-        // Detect checkbox toggles (enable/disable quantity)
-        quoteForm.addEventListener('change', (e) => {
-            const target = e.target;
-            if (target && target.classList.contains('itemChk')) {
-                const itemRow = target.closest('.item-row');
-                const qtyInput = itemRow.querySelector('.qty');
-
-                // Enable quantity if checked
-                qtyInput.disabled = !target.checked;
-                qtyInput.value = target.checked ? '1' : '0';
-                recalc();
-            }
-        });
-
-        // Detect quantity input changes
-        quoteForm.addEventListener('input', (e) => {
-            const target = e.target;
-            if (target && target.classList.contains('qty')) {
-                let currentValue = Number(target.value);
-                if (currentValue < 0 || target.value === '') {
-                    target.value = '0';
-                    currentValue = 0;
-                }
-                const itemRow = target.closest('.item-row');
-                const checkbox = itemRow.querySelector('.itemChk');
-                if (currentValue > 0) {
-                    checkbox.checked = true;
-                    target.disabled = false;
-                } else {
-                    checkbox.checked = false;
-                    target.disabled = true;
-                }
-                recalc();
-            }
-        });
-        // Perform initial total calculation on load
-        recalc();
-    }
-
-    // CHECKOUT PAGE: LOAD SAVED QUOTE DATA 
-    const checkoutSummaryTableBody = document.getElementById('checkoutSummaryBody');
-
-    if (checkoutSummaryTableBody) {
-
-        const loadCheckoutItems = () => {
-            const itemsJson = localStorage.getItem('quoteItems');
-            const totalJson = localStorage.getItem('quoteTotal');
-
-            if (itemsJson && totalJson) {
-                const selectedItems = JSON.parse(itemsJson);
-                const totals = JSON.parse(totalJson);
-                checkoutSummaryTableBody.innerHTML = '';
-
-                // If no items exist
-                if (selectedItems.length === 0) {
-                    checkoutSummaryTableBody.innerHTML = '<tr><td colspan="4">No items were added to the quote.</td></tr>';
-                    return;
-                }
-
-                // Dynamically add each item to the table
-                selectedItems.forEach((item) => {
-                    const row = checkoutSummaryTableBody.insertRow();
-                    row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td class="text-end">${formatZAR(item.price)}</td>
-                        <td class="text-center">${item.qty}</td>
-                        <td class="text-end">${formatZAR(item.total)}</td>
-                    `;
-                });
-
-                // Update total fields
-                const subTotalElem = document.getElementById('checkoutSubTotal');
-                const vatElem = document.getElementById('checkoutVAT');
-                const totalElem = document.getElementById('checkoutTotal');
-
-                if (subTotalElem) subTotalElem.textContent = formatZAR(totals.subTotal);
-                if (vatElem) vatElem.textContent = formatZAR(totals.vat);
-                if (totalElem) totalElem.textContent = formatZAR(totals.total);
-            } else {
-                // If no data found in storage
-                checkoutSummaryTableBody.innerHTML = '<tr><td colspan="4">Could not load quote data. Please return to the quote page.</td></tr>';
-            }
-        };
-        loadCheckoutItems();
-    }
-
-    // GALLERY LIGHTBOX FUNCTIONALITY 
+    // -----------------------------------------------------------
+    // 2. LIGHTBOX LOGIC FOR GALLERY.HTML 
+    // Handles opening and closing a full-screen image view.
+    // -----------------------------------------------------------
     const galleryImages = document.querySelectorAll('.gallery-image');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -279,4 +106,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // -----------------------------------------------------------
+    // 3. SERVICE SEARCH FILTER LOGIC FOR SERVICES.HTML 
+    // This runs only if the search input with ID 'serviceSearch' exists.
+    // -----------------------------------------------------------
+    const serviceSearchInput = document.getElementById('serviceSearch');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    if (serviceSearchInput && serviceCards.length > 0) {
+        serviceSearchInput.addEventListener('input', () => {
+            const query = serviceSearchInput.value.trim().toLowerCase();
+
+            serviceCards.forEach(card => {
+                // Get all text content from the card (including heading and paragraph)
+                const text = card.textContent.toLowerCase();
+
+                if (text.includes(query)) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none';  // Hide the card
+                }
+            });
+        });
+    }
+
 }); // End of DOMContentLoaded

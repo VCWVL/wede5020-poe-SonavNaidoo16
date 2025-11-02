@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make an Enquiry | FRC Tuned</title>
     <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="css/form.css">
+    <!-- Note: Removing redundant link to 'css/form.css' since all form styling is now in style.css -->
 </head>
 
 <body>
     <header>
+        <div class="logo">FRC <span>Tuned</span></div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -20,43 +21,58 @@
         </nav>
     </header>
 
+    <!-- Main content container -->
     <main class="container">
-        <section class="enquiry-section">
+        <!-- Replaced the old h1/p with the new form-header-card -->
+        <div class="form-header-card reveal reveal-delay-0">
             <h1>Make an Enquiry</h1>
             <p>Tell us more about your performance needs, and a specialist will get back to you shortly.</p>
+        </div>
 
-            <form id="enquiryForm" class="styled-form">
-                <div class="form-group">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="please enter your full name">
-                </div>
+        <!-- Form section -->
+        <form id="enquiryForm" class="styled-form reveal reveal-delay-1">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="please enter your full name">
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required placeholder="please enter your email address">
-                </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="email@example.com">
+            </div>
 
-                <div class="form-group">
-                    <label for="type">Type of Enquiry:</label>
-                    <select id="type" name="type" required>
-                        <option value="">-- Select an option --</option>
-                        <option value="ecu_tuning">ECU/TCU Tuning</option>
-                        <option value="diagnostics">Diagnostics & Repair</option>
-                        <option value="suspension">Suspension & Brakes</option>
-                        <option value="general">General Information</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional):</label>
+                <input type="tel" id="phone" name="phone" placeholder="+27 12 345 6789">
+            </div>
 
-                <div class="form-group">
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" rows="6" required placeholder="I'm looking for a Stage 2 tune on my vehicle"></textarea>
-                </div>
+            <div class="form-group">
+                <label for="vehicle">Vehicle Model/Year:</label>
+                <input type="text" id="vehicle" name="vehicle" required placeholder="BMW M3 G80, 2023">
+            </div>
 
-                <button type="submit" class="btn primary-btn">Submit Enquiry</button>
-            </form>
+            <div class="form-group">
+                <label for="service">Interested Service:</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service of interest</option>
+                    <option value="ECU/TCU Remapping">ECU/TCU Remapping</option>
+                    <option value="Suspension Upgrades">Suspension Upgrades</option>
+                    <option value="Exhaust System">Performance Exhaust System</option>
+                    <option value="Body Kits">Custom Body Kits</option>
+                    <option value="Diagnostics">Advanced Diagnostics</option>
+                </select>
+            </div>
 
-            <div id="response" class="form-response"></div>
-        </section>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="6" required placeholder="I'm looking for a Stage 2 tune on my vehicle"></textarea>
+            </div>
+
+            <!-- Changed button class to 'orange' for consistency -->
+            <button type="submit" class="btn orange">Submit Enquiry</button>
+        </form>
+
+        <div id="response" class="form-response"></div>
     </main>
 
     <footer>
@@ -73,7 +89,7 @@
 
             // Display success message
             response.textContent = "Thank you for your enquiry! We'll get back to you soon.";
-            response.style.color = "#28a745"; // Green text
+            response.style.color = "#ff8c00"; // Orange text
             response.style.fontWeight = "bold";
             response.style.marginTop = "10px";
 

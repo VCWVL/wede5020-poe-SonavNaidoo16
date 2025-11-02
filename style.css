@@ -1,5 +1,5 @@
 /* ======================================= */
-/*      FRC Tuned - Complete Stylesheet     */
+/*      FRC Tuned - Complete Stylesheet     */
 /* ======================================= */
 
 * {
@@ -195,57 +195,6 @@ nav a.active {
   opacity: 1;
 }
 
-/* ---------------------- SPLINE 3D SECTION ---------------------- */
-.spline-section {
-  background-color: #0b0b0b;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.spline-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  color: #ff6f00;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.iframe-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  aspect-ratio: 16 / 9;
-  margin: 0 auto;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(255, 111, 0, 0.4);
-}
-
-.iframe-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Overlay that visually hides the Spline logo */
-.iframe-cover {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 160px;     
-  height: 60px;     
-  background: #0b0b0b;
-  z-index: 10;
-  pointer-events: none;
-  border-top-left-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
-}
-
-
 /* ---------------------- FOOTER ---------------------- */
 footer {
   text-align: center;
@@ -305,4 +254,232 @@ footer {
     bottom: 6px;
     right: 6px;
   }
+}
+
+/* HOMEPAGE SPLINE SECTION (ISOLATED, NON-CONFLICTING) */
+
+.spline-section-home {
+  background-color: #0b0b0b;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.spline-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #ff6f00;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Wrapper for the 3D iframe */
+.spline-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 111, 0, 0.4);
+}
+
+/* The iframe itself */
+.spline-iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* The black patch that covers the Spline watermark */
+.spline-iframe-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px; /* slightly bigger now */
+  height: 60px; /* slightly taller */
+  background: #0b0b0b;
+  z-index: 10;
+  pointer-events: none;
+  border-top-left-radius: 12px;
+  box-shadow: 0 0 20px rgba(11, 11, 11, 0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .spline-section-home {
+    padding: 40px 10px;
+  }
+  .spline-heading {
+    font-size: 1.5rem;
+  }
+  .spline-iframe-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+  .spline-iframe-cover {
+    width: 130px;
+    height: 40px;
+  }
+}
+
+/* ---------------------- FORM HEADER STYLING ---------------------- */
+.form-header-card {
+    max-width: 600px;
+    margin: 40px auto 0 auto; /* Margin-bottom 0 to stick to next element */
+    padding: 30px;
+    background: #181818;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.2);
+    border: 1px solid #333;
+    border-bottom: none;
+}
+.form-header-card h1 {
+    color: rgb(255, 111, 0);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+.form-header-card p {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+/* ---------------------- GENERIC FORM STYLING ---------------------- */
+.styled-form {
+    max-width: 600px;
+    margin: 40px auto; /* Standard margin for standalone cards */
+    padding: 30px;
+    background: #181818;
+    border-radius: 12px; /* Full rounding for standalone cards */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+}
+
+/* ADJUSTMENT: Apply these styles to the styled-form that immediately follows the header card */
+.form-header-card + .styled-form {
+    margin-top: 0; /* Remove top gap to connect */
+    border-radius: 0 0 12px 12px; /* Round bottom only */
+    border-top: none; /* Connect visually */
+    margin-bottom: 40px; /* Keep bottom spacing */
+}
+
+
+.styled-form h2 {
+    color: rgb(255, 111, 0);
+    margin-bottom: 25px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(255, 111, 0);
+    border-radius: 6px;
+    background-color: #0d0d0d;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 111, 0, 0.5);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-response {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ---------------------- LIGHTBOX STYLING (FOR GALLERY) ---------------------- */
+.lightbox-overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.95); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+}
+
+/* Modal Content (Image) */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 111, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Caption of Image */
+#lightbox-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.1rem;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: rgb(255, 111, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% width on small screens */
+@media only screen and (max-width: 700px) {
+    .lightbox-content {
+        width: 100%;
+    }
 }
